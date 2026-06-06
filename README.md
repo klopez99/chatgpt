@@ -1,6 +1,18 @@
 # Nursing Charting & Kinnser Workflow Agent Blueprint
 
-This repository contains a starter blueprint for building an agent that assists a licensed clinician with home-health nursing charting and daily workflow in WellSky Home Health & Hospice (formerly Kinnser) at `kinnser.net`.
+This repository contains a starter blueprint and first local prototype for building an assistant that helps a licensed clinician with home-health nursing charting and daily workflow in WellSky Home Health & Hospice (formerly Kinnser) at `kinnser.net`.
+
+## Current prototype
+
+The first implementation is a dependency-free browser app for a clinician-controlled documentation draft workflow:
+
+- Structured visit-fact form for de-identified test data.
+- Editable draft sections for visit narrative, teaching/response, medication concerns, care coordination, and follow-up tasks.
+- QA flags for missing required fields, wound detail gaps, medication follow-up gaps, teaching without response, intervention response gaps, pain contradictions, and unresolved uncertainty.
+- Explicit clinician approval gate before copying approved draft text.
+- No Kinnser connection, no credential handling, no patient-data storage, and no EMR submission.
+
+Open `index.html` in a browser to try the prototype locally. Run `npm test` to execute the dependency-free drafting and QA tests.
 
 ## Goal
 

@@ -1,0 +1,413 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Home Health Field Toolkit</title>
+  <style>
+    :root {
+      --bg: #f5f7fb;
+      --card: #ffffff;
+      --ink: #111827;
+      --muted: #6b7280;
+      --line: #d1d5db;
+      --accent: #2563eb;
+      --warn: #92400e;
+      --warn-bg: #fffbeb;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background: var(--bg);
+      line-height: 1.45;
+    }
+    header {
+      padding: 20px;
+      background: #111827;
+      color: white;
+    }
+    header h1 { margin: 0 0 6px; font-size: 1.5rem; }
+    header p { margin: 0; color: #d1d5db; }
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 16px;
+    }
+    .notice {
+      background: var(--warn-bg);
+      color: var(--warn);
+      border: 1px solid #f59e0b;
+      border-radius: 12px;
+      padding: 12px;
+      margin-bottom: 16px;
+      font-size: 0.95rem;
+    }
+    .tabs {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 16px;
+    }
+    .tabs button, .actions button {
+      border: 1px solid var(--line);
+      background: var(--card);
+      color: var(--ink);
+      border-radius: 999px;
+      padding: 10px 14px;
+      font-size: 0.95rem;
+      cursor: pointer;
+    }
+    .tabs button.active, .actions button.primary {
+      background: var(--accent);
+      color: white;
+      border-color: var(--accent);
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 12px;
+    }
+    section.card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 14px;
+      margin-bottom: 16px;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+    }
+    section.card h2 { margin: 0 0 10px; font-size: 1.15rem; }
+    label { display: block; font-weight: 650; margin: 10px 0 5px; }
+    input, select, textarea {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 10px;
+      font: inherit;
+      background: white;
+    }
+    textarea { min-height: 88px; resize: vertical; }
+    .hidden { display: none; }
+    .actions {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin: 12px 0;
+    }
+    .output {
+      white-space: pre-wrap;
+      background: #0b1020;
+      color: #f9fafb;
+      border-radius: 12px;
+      padding: 14px;
+      min-height: 220px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 0.92rem;
+      overflow-wrap: anywhere;
+    }
+    .small { color: var(--muted); font-size: 0.88rem; }
+    @media print {
+      .tabs, .actions, .notice { display: none; }
+      body { background: white; }
+      section.card { box-shadow: none; break-inside: avoid; }
+      .output { color: black; background: white; border: 1px solid #999; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Home Health Field Toolkit</h1>
+    <p>Offline-friendly draft builder for nurse-reviewed Kinnser/WellSky copy blocks.</p>
+  </header>
+
+  <main>
+    <div class="notice">
+      Use de-identified initials/aliases when possible. Do not store credentials here. This tool drafts text only; the licensed clinician must verify, edit, and manually enter/sign in Kinnser.
+    </div>
+
+    <nav class="tabs" aria-label="Toolkit sections">
+      <button class="active" data-tab="snv">SN Visit Note</button>
+      <button data-tab="auth">Get Auth</button>
+      <button data-tab="order">Physician Order</button>
+      <button data-tab="wound">Wound Block</button>
+      <button data-tab="qa">QA Check</button>
+    </nav>
+
+    <section id="snv" class="card panel">
+      <h2>Skilled Nursing Visit Draft</h2>
+      <div class="grid">
+        <div>
+          <label>Visit date/time</label>
+          <input id="visitDate" placeholder="06/08/2026 10:00 AM" />
+        </div>
+        <div>
+          <label>Patient alias/initials</label>
+          <input id="patientAlias" placeholder="Initials only when possible" />
+        </div>
+        <div>
+          <label>Visit type</label>
+          <select id="visitType">
+            <option>SN follow-up visit</option>
+            <option>Start of Care</option>
+            <option>ROC</option>
+            <option>Recertification</option>
+            <option>PRN visit</option>
+            <option>Discharge visit</option>
+            <option>Aide supervisory visit</option>
+          </select>
+        </div>
+        <div>
+          <label>Primary problem/DX</label>
+          <input id="primaryProblem" placeholder="CHF, Foley, wound, DM, lymphedema..." />
+        </div>
+      </div>
+      <label>Subjective report</label>
+      <textarea id="subjective" placeholder="Patient/caregiver report, pain, symptoms, changes since last visit..."></textarea>
+      <label>Vitals / objective findings</label>
+      <textarea id="vitals" placeholder="BP, HR, RR, temp, SpO2, weight, blood glucose, edema, lung sounds, pain..."></textarea>
+      <label>Assessment findings</label>
+      <textarea id="assessment" placeholder="Focused assessment findings tied to skilled need..."></textarea>
+      <label>Skilled interventions performed</label>
+      <textarea id="interventions" placeholder="Wound care, Foley care, disease process teaching, med review, safety teaching..."></textarea>
+      <label>Medication review / issues</label>
+      <textarea id="meds" placeholder="Med changes, adherence issues, missing meds, MD/pharmacy follow-up needed..."></textarea>
+      <label>Teaching provided</label>
+      <textarea id="teaching" placeholder="CHF zones, infection prevention, catheter precautions, fall prevention, wound care, DM teaching..."></textarea>
+      <label>Patient/caregiver response / teach-back</label>
+      <textarea id="response" placeholder="Verbalized understanding, needs reinforcement, caregiver able/unable to teach back..."></textarea>
+      <label>Care coordination / follow-up</label>
+      <textarea id="coordination" placeholder="MD notified, case manager, therapy, supply order, lab, DME, caregiver instructions..."></textarea>
+      <label>Plan / next visit focus</label>
+      <textarea id="plan" placeholder="Continue SN per POC, monitor, reinforce, follow up on orders/supplies..."></textarea>
+      <label>Anything uncertain or not assessed</label>
+      <textarea id="uncertain" placeholder="Items needing nurse verification before copying to Kinnser..."></textarea>
+    </section>
+
+    <section id="auth" class="card panel hidden">
+      <h2>Follow-Up Authorization / Get Auth Draft</h2>
+      <div class="grid">
+        <div><label>Auth type/date</label><input id="authType" placeholder="FOLLOW-UP AUTH 06/08/2026" /></div>
+        <div><label>Episode date</label><input id="episodeDate" placeholder="05/03/2026 - 07/01/2026" /></div>
+        <div><label>SN frequency</label><input id="snFreq" placeholder="1w9 + 2 PRN" /></div>
+        <div><label># visits requesting</label><input id="visitsRequesting" placeholder="10 visits, thank you." /></div>
+      </div>
+      <label>Primary DX</label><textarea id="primaryDx"></textarea>
+      <label>Secondary DX</label><textarea id="secondaryDx"></textarea>
+      <label>DX related to HH</label><textarea id="hhDx"></textarea>
+      <label>Teachable caregiver who/when</label><textarea id="caregiver"></textarea>
+      <label>Place of service</label><input id="placeService" placeholder="Home / B&C / ALF" />
+      <label>Prior level of function</label><textarea id="priorLof"></textarea>
+      <label>Current level of function</label><textarea id="currentLof"></textarea>
+      <label>Justification for skilled nursing care</label><textarea id="skilledJustification"></textarea>
+      <label>Goals and current progress toward goals</label><textarea id="goalsProgress" placeholder="Use specific measurable goals with % progress and date."></textarea>
+      <label>Plan of discharge</label><textarea id="dischargePlan"></textarea>
+    </section>
+
+    <section id="order" class="card panel hidden">
+      <h2>Physician Order Draft</h2>
+      <div class="grid">
+        <div><label>Order date</label><input id="orderDate" /></div>
+        <div><label>Provider / office</label><input id="provider" /></div>
+        <div><label>Order type</label><select id="orderType"><option>Wound care order</option><option>Foley catheter order</option><option>Medication clarification</option><option>Lab order request</option><option>DME/supply request</option><option>Therapy referral request</option><option>Visit frequency order</option></select></div>
+      </div>
+      <label>Clinical reason</label><textarea id="orderReason"></textarea>
+      <label>Requested order wording</label><textarea id="orderWording" placeholder="SN to... frequency... parameters... notify MD if..."></textarea>
+      <label>Communication/follow-up</label><textarea id="orderFollowup"></textarea>
+    </section>
+
+    <section id="wound" class="card panel hidden">
+      <h2>Wound Documentation Block</h2>
+      <div class="grid">
+        <div><label>Location</label><input id="woundLocation" placeholder="Left heel / sacrum / right ankle..." /></div>
+        <div><label>Type/stage if known</label><input id="woundType" placeholder="Pressure injury stage 2, venous ulcer..." /></div>
+        <div><label>Measurements</label><input id="woundMeasure" placeholder="L x W x D cm" /></div>
+      </div>
+      <label>Wound bed</label><textarea id="woundBed" placeholder="Granulation, slough, epithelial, eschar..."></textarea>
+      <label>Drainage / odor</label><textarea id="woundDrainage"></textarea>
+      <label>Periwound / edema / pain</label><textarea id="woundPeriwound"></textarea>
+      <label>Treatment performed</label><textarea id="woundTreatment"></textarea>
+      <label>Response / teaching / supplies</label><textarea id="woundResponse"></textarea>
+    </section>
+
+    <section id="qa" class="card panel hidden">
+      <h2>QA Completeness Check</h2>
+      <p class="small">Use after generating a note. Anything missing here should be verified before Kinnser entry/signature.</p>
+      <label><input type="checkbox" class="qa" value="Visit date/type verified." /> Visit date/type verified</label>
+      <label><input type="checkbox" class="qa" value="Vitals and pain assessment verified." /> Vitals and pain verified</label>
+      <label><input type="checkbox" class="qa" value="Skilled intervention and patient response documented." /> Skilled intervention + response documented</label>
+      <label><input type="checkbox" class="qa" value="Medication review and any issues/follow-up documented." /> Medication review documented</label>
+      <label><input type="checkbox" class="qa" value="Teaching and teach-back/caregiver response documented." /> Teaching + teach-back documented</label>
+      <label><input type="checkbox" class="qa" value="Care coordination/follow-up tasks documented." /> Care coordination documented</label>
+      <label><input type="checkbox" class="qa" value="No unsupported or fabricated findings included." /> No unsupported findings</label>
+      <label><input type="checkbox" class="qa" value="Clinician reviewed final text before Kinnser entry." /> Clinician reviewed final text</label>
+    </section>
+
+    <section class="card">
+      <h2>Generated Copy Block</h2>
+      <div class="actions">
+        <button class="primary" onclick="generateActive()">Generate Current Section</button>
+        <button onclick="generateAll()">Generate All</button>
+        <button onclick="copyOutput()">Copy Output</button>
+        <button onclick="saveLocal()">Save Locally on This Device</button>
+        <button onclick="loadLocal()">Load Local Draft</button>
+        <button onclick="clearAll()">Clear</button>
+        <button onclick="window.print()">Print / Save PDF</button>
+      </div>
+      <div id="output" class="output">Generated text will appear here.</div>
+    </section>
+  </main>
+
+  <script>
+    const $ = id => document.getElementById(id);
+    const val = id => ($(id)?.value || '').trim();
+    let activeTab = 'snv';
+
+    document.querySelectorAll('.tabs button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        activeTab = btn.dataset.tab;
+        document.querySelectorAll('.tabs button').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        document.querySelectorAll('.panel').forEach(p => p.classList.add('hidden'));
+        $(activeTab).classList.remove('hidden');
+      });
+    });
+
+    function section(title, body) {
+      const clean = body.trim();
+      return clean ? `${title}:\n${clean}\n` : `${title}:\n[VERIFY / NOT PROVIDED]\n`;
+    }
+
+    function snvDraft() {
+      return [
+        `SKILLED NURSING VISIT DRAFT`,
+        `Visit date/time: ${val('visitDate') || '[VERIFY]'}`,
+        `Patient alias/initials: ${val('patientAlias') || '[VERIFY]'}`,
+        `Visit type: ${val('visitType') || '[VERIFY]'}`,
+        `Primary problem/DX: ${val('primaryProblem') || '[VERIFY]'}`,
+        '',
+        section('Subjective', val('subjective')),
+        section('Objective / vitals / focused assessment', `${val('vitals')}\n${val('assessment')}`),
+        section('Skilled interventions performed', val('interventions')),
+        section('Medication review / issues', val('meds')),
+        section('Teaching and patient/caregiver response', `${val('teaching')}\nResponse/teach-back: ${val('response') || '[VERIFY]'}`),
+        section('Care coordination', val('coordination')),
+        section('Plan / next visit focus', val('plan')),
+        section('Uncertain or not assessed', val('uncertain')),
+        `NURSE REVIEW REQUIRED: Verify all facts, vitals, medications, wounds, orders, teaching response, and skilled need before copying into Kinnser.`
+      ].join('\n').replace(/\n{3,}/g, '\n\n');
+    }
+
+    function authDraft() {
+      return [
+        val('authType') || 'FOLLOW-UP AUTH [DATE]',
+        `EPISODE DATE: ${val('episodeDate') || '[VERIFY]'}`,
+        '',
+        `PRIMARY DX: ${val('primaryDx') || '[VERIFY]'}`,
+        `SECONDARY DX: ${val('secondaryDx') || '[VERIFY]'}`,
+        `DX RELATED TO HH: ${val('hhDx') || '[VERIFY]'}`,
+        `TEACHABLE CAREGIVER WHO/WHEN: ${val('caregiver') || '[VERIFY]'}`,
+        `PLACE OF SERVICE: ${val('placeService') || '[VERIFY]'}`,
+        '',
+        `SN FREQUENCY: ${val('snFreq') || '[VERIFY]'}`,
+        `# VISITS REQUESTING: ${val('visitsRequesting') || '[VERIFY]'}`,
+        '',
+        `PRIOR LEVEL OF FUNCTION: ${val('priorLof') || '[VERIFY]'}`,
+        `CURRENT LEVEL OF FUNCTION: ${val('currentLof') || '[VERIFY]'}`,
+        '',
+        `JUSTIFICATION FOR SKILLED NURSING CARE: ${val('skilledJustification') || '[VERIFY]'}`,
+        '',
+        `GOALS AND CURRENT PROGRESS TOWARDS GOALS: ${val('goalsProgress') || '[VERIFY - include measurable goals, % progress, and date]'}`,
+        '',
+        `PLAN OF DISCHARGE: ${val('dischargePlan') || '[VERIFY]'}`
+      ].join('\n');
+    }
+
+    function orderDraft() {
+      return [
+        `PHYSICIAN ORDER / COMMUNICATION DRAFT`,
+        `Date: ${val('orderDate') || '[VERIFY]'}`,
+        `Provider/office: ${val('provider') || '[VERIFY]'}`,
+        `Order type: ${val('orderType') || '[VERIFY]'}`,
+        '',
+        section('Clinical reason', val('orderReason')),
+        section('Requested order wording', val('orderWording')),
+        section('Communication / follow-up', val('orderFollowup')),
+        `NURSE REVIEW REQUIRED: Confirm order is clinically appropriate and supported before sending/requesting signature.`
+      ].join('\n');
+    }
+
+    function woundDraft() {
+      return [
+        `WOUND DOCUMENTATION BLOCK`,
+        `Location: ${val('woundLocation') || '[VERIFY]'}`,
+        `Type/stage if known: ${val('woundType') || '[VERIFY]'}`,
+        `Measurements: ${val('woundMeasure') || '[VERIFY L x W x D cm]'}`,
+        '',
+        section('Wound bed', val('woundBed')),
+        section('Drainage / odor', val('woundDrainage')),
+        section('Periwound / edema / pain', val('woundPeriwound')),
+        section('Treatment performed', val('woundTreatment')),
+        section('Response / teaching / supplies', val('woundResponse')),
+        `QA: Verify location, measurements, drainage, odor, periwound, treatment order, patient tolerance, and photo policy before final charting.`
+      ].join('\n');
+    }
+
+    function qaDraft() {
+      const checked = [...document.querySelectorAll('.qa:checked')].map(c => `- ${c.value}`);
+      const missing = [...document.querySelectorAll('.qa:not(:checked)')].map(c => `- VERIFY: ${c.value}`);
+      return [`QA COMPLETENESS CHECK`, '', `Completed:`, checked.join('\n') || '- None checked', '', `Still needs review:`, missing.join('\n') || '- None'].join('\n');
+    }
+
+    function generateActive() {
+      const map = { snv: snvDraft, auth: authDraft, order: orderDraft, wound: woundDraft, qa: qaDraft };
+      $('output').textContent = map[activeTab]();
+    }
+
+    function generateAll() {
+      $('output').textContent = [snvDraft(), authDraft(), orderDraft(), woundDraft(), qaDraft()].join('\n\n---\n\n');
+    }
+
+    async function copyOutput() {
+      const text = $('output').textContent;
+      try {
+        await navigator.clipboard.writeText(text);
+        alert('Copied to clipboard. Review before pasting into Kinnser.');
+      } catch (e) {
+        alert('Copy failed. Select the output text manually and copy.');
+      }
+    }
+
+    function fields() {
+      return [...document.querySelectorAll('input, textarea, select')].filter(el => el.id);
+    }
+
+    function saveLocal() {
+      const data = {};
+      fields().forEach(el => data[el.id] = el.type === 'checkbox' ? el.checked : el.value);
+      data.__output = $('output').textContent;
+      localStorage.setItem('homeHealthFieldToolkitDraft', JSON.stringify(data));
+      alert('Saved locally on this device/browser only. Clear after use if it may contain PHI.');
+    }
+
+    function loadLocal() {
+      const raw = localStorage.getItem('homeHealthFieldToolkitDraft');
+      if (!raw) return alert('No local draft found.');
+      const data = JSON.parse(raw);
+      fields().forEach(el => {
+        if (Object.prototype.hasOwnProperty.call(data, el.id)) {
+          if (el.type === 'checkbox') el.checked = !!data[el.id]; else el.value = data[el.id];
+        }
+      });
+      $('output').textContent = data.__output || 'Loaded local draft.';
+    }
+
+    function clearAll() {
+      if (!confirm('Clear fields and local draft from this browser?')) return;
+      fields().forEach(el => { if (el.type === 'checkbox') el.checked = false; else el.value = ''; });
+      $('output').textContent = 'Generated text will appear here.';
+      localStorage.removeItem('homeHealthFieldToolkitDraft');
+    }
+  </script>
+</body>
+</html>

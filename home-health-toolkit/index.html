@@ -1,0 +1,1415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Home Health Toolkit</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f7f7f7;
+      color: #222;
+    }
+    header {
+      background: #004b88;
+      color: #fff;
+      padding: 12px 20px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 20px;
+      flex: 1;
+    }
+    header button {
+      background: #fff;
+      color: #004b88;
+      border: 1px solid #004b88;
+      padding: 6px 12px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    header button:hover {
+      background: #e6f0fa;
+    }
+    main {
+      padding: 20px;
+    }
+    section {
+      background: #fff;
+      margin-bottom: 20px;
+      padding: 20px;
+      border-radius: 6px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+    section h2 {
+      margin-top: 0;
+      margin-bottom: 16px;
+      font-size: 18px;
+      border-bottom: 1px solid #eee;
+      padding-bottom: 6px;
+    }
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+    .row label {
+      flex: 1 1 200px;
+      padding-right: 8px;
+      font-weight: 500;
+    }
+    .row input[type="text"],
+    .row input[type="date"],
+    .row input[type="number"],
+    .row select,
+    .row textarea {
+      flex: 2 1 300px;
+      padding: 6px;
+      font-size: 14px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    .row textarea {
+      resize: vertical;
+      min-height: 60px;
+    }
+    .row output {
+      display: inline-block;
+      width: 40px;
+      text-align: right;
+      padding: 0 4px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+    table th, table td {
+      border: 1px solid #ddd;
+      padding: 6px;
+      text-align: left;
+    }
+    table th {
+      background: #f5f5f5;
+    }
+    .btns {
+      margin-top: 16px;
+    }
+    .btns button {
+      margin-right: 8px;
+      margin-bottom: 8px;
+      padding: 6px 12px;
+      font-size: 14px;
+      background: #004b88;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .btns button:hover {
+      background: #003760;
+    }
+    details {
+      margin-bottom: 10px;
+    }
+    summary {
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .toaster {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      background: #333;
+      color: #fff;
+      padding: 8px 12px;
+      border-radius: 4px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      z-index: 1000;
+    }
+    .toaster.show {
+      opacity: 1;
+    }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 16px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Home Health Toolkit</h1>
+    <button id="btn-copy-all">Copy All Filled Text</button>
+    <button id="btn-save-browser">Save</button>
+    <button id="btn-clear">Clear</button>
+  </header>
+  <main id="main">
+    <!-- Patient Snapshot -->
+    <section id="ptinfo">
+      <h2>Patient Snapshot</h2>
+      <div class="privacy-warning" style="background:#fff4e5;border:1px solid #f0b429;padding:10px;border-radius:6px;margin-bottom:12px;">Hosted template: do not enter PHI unless your hosting/storage environment is approved for PHI.</div>
+      <div class="row">
+        <label for="pt_name">Patient name</label>
+        <!-- Patient details intentionally left blank for hosted template. Avoid storing PHI on public sites. -->
+        <input id="pt_name" type="text" value="" />
+      </div>
+      <div class="row">
+        <label for="pt_dob">Date of birth</label>
+        <!-- Dates must be provided in YYYY-MM-DD format for input[type=date] elements -->
+        <input id="pt_dob" type="date" value="" />
+      </div>
+      <div class="row">
+        <label for="pt_mrn">Medical record number (MRN)</label>
+        <input id="pt_mrn" type="text" value="" />
+      </div>
+      <div class="row">
+        <label for="pt_payer">Primary payer</label>
+        <input id="pt_payer" type="text" value="Medicare" />
+      </div>
+      <div class="row">
+        <label for="pt_md">Physician / PCP</label>
+        <input id="pt_md" type="text" value="" />
+      </div>
+      <div class="row">
+        <label for="pt_primary_dx">Primary diagnosis</label>
+        <input id="pt_primary_dx" type="text" value="" />
+      </div>
+      <div class="row">
+        <label for="pt_risks">Key risks / red flags</label>
+        <!-- Pre-populate the textarea with identified risks -->
+        <textarea id="pt_risks" placeholder="Enter non-identifying risk summary here. Avoid storing PHI if hosting publicly."></textarea>
+      </div>
+      <div class="btns">
+        <button type="button" data-copy-section="#ptinfo">Copy Section</button>
+      </div>
+    </section>
+
+    <!-- Get Auth – Request Additional Visits -->
+    <section id="auth">
+      <h2>Get Auth – Request Additional Visits</h2>
+      <div class="row">
+        <label for="soc_date">SOC date</label>
+        <input id="soc_date" type="date" />
+      </div>
+      <div class="row">
+        <label for="auth_due">Auth due date</label>
+        <input id="auth_due" type="date" />
+      </div>
+      <div class="row">
+        <label for="auth_phone">Auth phone line</label>
+        <input id="auth_phone" type="text" />
+      </div>
+      <div class="row">
+        <label for="auth_primary_dx">Primary Dx</label>
+        <input id="auth_primary_dx" type="text" />
+      </div>
+      <div class="row">
+        <label for="auth_rehab_dx">Rehab Dx</label>
+        <input id="auth_rehab_dx" type="text" />
+      </div>
+      <div class="row">
+        <label for="auth_related_dx">Dx related to HH</label>
+        <input id="auth_related_dx" type="text" />
+      </div>
+      <div class="row">
+        <label for="auth_living">Living situation</label>
+        <input id="auth_living" type="text" />
+      </div>
+      <div class="row">
+        <label for="auth_plof">PLOF / CLOF</label>
+        <input id="auth_plof" type="text" />
+      </div>
+      <div class="row">
+        <label for="auth_cg">Teachable caregiver</label>
+        <input id="auth_cg" type="text" />
+      </div>
+      <div class="row">
+        <label for="auth_just">Skilled nursing justification</label>
+        <textarea id="auth_just"></textarea>
+      </div>
+      <h3>Goals &amp; Progress</h3>
+      <table id="goaltable">
+        <thead>
+          <tr>
+            <th>Goal</th>
+            <th>Category</th>
+            <th>Due date</th>
+            <th>%</th>
+            <th>Notes</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
+        <tbody id="goalbody"></tbody>
+      </table>
+      <div class="btns">
+        <button type="button" id="btn-add-goal">Add goal</button>
+        <button type="button" data-copy-section="#auth">Copy Section</button>
+      </div>
+    </section>
+
+    <!-- Homebound Statement Builder -->
+    <section id="hb">
+      <h2>Homebound Statement Builder</h2>
+      <div><strong>Leaving home requires (select all that apply):</strong></div>
+      <div class="row">
+        <label><input type="checkbox" class="hb" value="assistance of another person"> Assistance of another person</label>
+        <label><input type="checkbox" class="hb" value="assistance of special equipment"> Use of special equipment</label>
+        <label><input type="checkbox" class="hb" value="both assistance and equipment"> Assistance and equipment</label>
+      </div>
+      <div><strong>Clinical barriers (select all that apply):</strong></div>
+      <div class="row">
+        <label><input type="checkbox" class="hb" value="pain"> Pain</label>
+        <label><input type="checkbox" class="hb" value="sob"> Shortness of breath</label>
+        <label><input type="checkbox" class="hb" value="cognitive impairment"> Cognitive impairment</label>
+        <label><input type="checkbox" class="hb" value="safety concerns"> Safety concerns</label>
+      </div>
+      <div class="row">
+        <label for="hb_context">Context / narrative</label>
+        <textarea id="hb_context"></textarea>
+      </div>
+      <div class="btns">
+        <button type="button" id="btn-build-hb">Build Homebound Statement</button>
+        <button type="button" data-copy-section="#hb">Copy Section</button>
+      </div>
+      <div class="row">
+        <label for="hb_out">Generated homebound statement</label>
+        <textarea id="hb_out" readonly></textarea>
+      </div>
+    </section>
+
+    <!-- Physician Orders templates -->
+    <section id="po">
+      <h2>Physician Orders</h2>
+      <details>
+        <summary>Crushed medications</summary>
+        <textarea id="po_crushed">Crushed medications: Crush tablets and mix with applesauce or pudding as needed for administration. Flush with 30 mL water after administration.</textarea>
+      </details>
+      <details>
+        <summary>SN visit frequency</summary>
+        <textarea id="po_freq">SN to visit 1-2 times per week for 4 weeks for skilled assessment, education, and management.</textarea>
+      </details>
+      <details>
+        <summary>Fax header</summary>
+        <textarea id="fax_header">Physician Orders:
+- Admit to Home Health
+- Dx:
+- SN frequency:
+- Other disciplines:
+
+Thank you for your signature below to approve orders.</textarea>
+      </details>
+      <div class="btns">
+        <button type="button" data-copy-section="#po">Copy Section</button>
+      </div>
+    </section>
+
+    <!-- Wound orders templates -->
+    <section id="wound">
+      <h2>Wound orders</h2>
+      <details>
+        <summary>Stage 2 pressure ulcer</summary>
+        <textarea id="wo_stage2">Stage 2 pressure ulcer: Cleanse with normal saline. Apply prescribed dressing daily and as needed for saturation. Monitor for signs of infection. Document size, drainage, and appearance.</textarea>
+      </details>
+      <details>
+        <summary>Skin tear</summary>
+        <textarea id="wo_skintear">Skin tear: Cleanse gently with wound cleanser. Apply non-adherent dressing. Secure with self-adherent wrap. Change every other day and as needed.</textarea>
+      </details>
+      <div class="btns">
+        <button type="button" data-copy-section="#wound">Copy Section</button>
+      </div>
+    </section>
+
+    <!-- Skilled nursing visit note template -->
+    <section id="snv">
+      <h2>Skilled nursing visit note (SOAP)</h2>
+      <textarea id="snv_note">Subjective: Pt reports...
+Objective: VS: T__, HR__, BP__, RR__, SpO2__. Assessment of...
+Assessment:...
+Plan:...</textarea>
+      <div class="btns">
+        <button type="button" data-copy-section="#snv">Copy Section</button>
+      </div>
+    </section>
+
+    <!-- Skilled Nursing Visit Note Builder -->
+    <section id="snvb">
+      <h2>Skilled Nursing Visit Note Builder</h2>
+      <div class="row">
+        <label for="snvb_date">Date</label>
+        <input id="snvb_date" type="date" />
+      </div>
+      <div class="row">
+        <label for="snvb_time_in">Time in</label>
+        <input id="snvb_time_in" type="time" />
+      </div>
+      <div class="row">
+        <label for="snvb_time_out">Time out</label>
+        <input id="snvb_time_out" type="time" />
+      </div>
+      <div class="row">
+        <label for="snvb_temp">Temperature (°F)</label>
+        <input id="snvb_temp" type="text" placeholder="e.g. 98.6" />
+      </div>
+      <div class="row">
+        <label for="snvb_hr">Heart rate</label>
+        <input id="snvb_hr" type="number" min="0" />
+      </div>
+      <div class="row">
+        <label for="snvb_bp">Blood pressure</label>
+        <input id="snvb_bp" type="text" placeholder="e.g. 130/80" />
+      </div>
+      <div class="row">
+        <label for="snvb_rr">Respiratory rate</label>
+        <input id="snvb_rr" type="number" min="0" />
+      </div>
+      <div class="row">
+        <label for="snvb_spo2">SpO₂ (%)</label>
+        <input id="snvb_spo2" type="number" min="0" max="100" />
+      </div>
+      <div class="row">
+        <label for="snvb_type">Visit type(s)</label>
+        <select id="snvb_type" multiple size="6">
+          <option>Wound care</option>
+          <option>CHF management</option>
+          <option>Foley care</option>
+          <option>Diabetes education</option>
+          <option>Medication teaching</option>
+          <option>Oxygen teaching</option>
+        </select>
+      </div>
+      <div class="row">
+        <label for="snvb_type_other">Other visit types (comma separated)</label>
+        <input id="snvb_type_other" type="text" />
+      </div>
+      <div class="row">
+        <label for="snvb_interventions">Interventions</label>
+        <textarea id="snvb_interventions"></textarea>
+      </div>
+      <div class="row">
+        <label for="snvb_response">Patient response</label>
+        <textarea id="snvb_response"></textarea>
+      </div>
+      <div class="row">
+        <label for="snvb_plan">Plan / Next visit focus</label>
+        <textarea id="snvb_plan"></textarea>
+      </div>
+      <div class="row">
+        <label for="snvb_md_notify">MD notified?</label>
+        <select id="snvb_md_notify">
+          <option>No</option>
+          <option>Yes</option>
+        </select>
+      </div>
+      <div class="row">
+        <label for="snvb_md_details">MD notification details</label>
+        <input id="snvb_md_details" type="text" placeholder="e.g. Labs discussed, new orders" />
+      </div>
+      <div class="btns">
+        <button type="button" id="snvb_build">Build SN Visit Note</button>
+        <button type="button" id="snvb_copy">Copy SNV Output</button>
+        <button type="button" data-copy-section="#snvb">Copy Section</button>
+      </div>
+      <div class="row">
+        <label for="snvb_out">SN Visit Note Output</label>
+        <textarea id="snvb_out" readonly></textarea>
+      </div>
+    </section>
+
+    <!-- SOC/DC checklist -->
+    <section id="socdc">
+      <h2>SOC/DC checklist</h2>
+      <div class="row">
+        <label><input type="checkbox" class="socdc"> Initial assessment completed</label>
+        <label><input type="checkbox" class="socdc"> Medication reconciliation done</label>
+        <label><input type="checkbox" class="socdc"> Care plan reviewed</label>
+        <label><input type="checkbox" class="socdc"> Discharge teaching completed</label>
+      </div>
+      <div class="btns">
+        <button type="button" data-copy-section="#socdc">Copy Section</button>
+      </div>
+    </section>
+
+    <!-- AuthX (Example aligned) -->
+    <section id="authx">
+      <h2>Get Auth (Example-Aligned)</h2>
+      <div class="row">
+        <label for="authx_due">Auth due date</label>
+        <input id="authx_due" type="date" />
+      </div>
+      <div class="row">
+        <label for="authx_hhplus">HH+</label>
+        <select id="authx_hhplus">
+          <option>Yes</option>
+          <option selected>No</option>
+        </select>
+      </div>
+      <div class="row">
+        <label for="authx_wounds">Wounds present?</label>
+        <select id="authx_wounds">
+          <option selected>No</option>
+          <option>Yes</option>
+        </select>
+      </div>
+      <div class="row">
+        <label for="authx_primary_sel">Primary Dx</label>
+        <select id="authx_primary_sel">
+          <option value="">—</option>
+          <option>CHF</option>
+          <option>Diabetes</option>
+          <option>Hypertension</option>
+          <option>Custom</option>
+        </select>
+        <input id="authx_primary" type="text" placeholder="Custom primary dx (if selected)" />
+      </div>
+      <div class="row">
+        <label for="authx_rehab_sel">Secondary/Rehab Dx</label>
+        <select id="authx_rehab_sel">
+          <option value="">—</option>
+          <option>COPD</option>
+          <option>Joint replacement</option>
+          <option>Neuropathy</option>
+          <option>Custom</option>
+        </select>
+        <input id="authx_rehab" type="text" placeholder="Custom rehab dx (if selected)" />
+      </div>
+      <div class="row">
+        <label for="authx_related">Dx related to HH</label>
+        <select id="authx_related" multiple size="4">
+          <option>Hypertension</option>
+          <option>Hyperlipidemia</option>
+          <option>Osteoarthritis</option>
+          <option>Renal disease</option>
+        </select>
+      </div>
+      <div class="row">
+        <label for="authx_related_other">Other related Dx (comma separated)</label>
+        <input id="authx_related_other" type="text" />
+      </div>
+      <div class="row">
+        <label for="authx_living_sel">Living situation</label>
+        <select id="authx_living_sel">
+          <option value="">—</option>
+          <option>Lives alone</option>
+          <option>Lives with spouse</option>
+          <option>Assisted living</option>
+          <option>Custom</option>
+        </select>
+        <input id="authx_living_custom" type="text" placeholder="Custom living situation" />
+      </div>
+      <div class="row">
+        <label for="authx_plof_sel">Pre-level of function (PLOF)</label>
+        <select id="authx_plof_sel">
+          <option value="">—</option>
+          <option>Independent</option>
+          <option>With assistance</option>
+          <option>Custom</option>
+        </select>
+        <input id="authx_plof_dme" type="text" placeholder="Assistive devices / DME used" />
+      </div>
+      <div class="row">
+        <label for="authx_clof_sel">Current level of function (CLOF)</label>
+        <select id="authx_clof_sel">
+          <option value="">—</option>
+          <option>Independent</option>
+          <option>With assistance</option>
+          <option>Dependent</option>
+          <option>Custom</option>
+        </select>
+        <input id="authx_clof_notes" type="text" placeholder="CLOF notes" />
+      </div>
+      <div class="row">
+        <label for="authx_cg_sel">Teachable caregiver</label>
+        <select id="authx_cg_sel">
+          <option value="">—</option>
+          <option>Spouse</option>
+          <option>Child</option>
+          <option>Other</option>
+        </select>
+        <input id="authx_cg_when" type="text" placeholder="Availability (days/times)" />
+      </div>
+      <div class="row">
+        <label for="authx_just">Skilled nursing justification</label>
+        <textarea id="authx_just"></textarea>
+      </div>
+      <div class="row">
+        <label for="authx_sn_freq">SN frequency (e.g. 2wk)</label>
+        <input id="authx_sn_freq" type="text" />
+      </div>
+      <div class="row">
+        <label for="authx_sn_addl">Additional visits requested</label>
+        <input id="authx_sn_addl" type="number" min="0" />
+      </div>
+      <div class="row">
+        <label for="authx_include_goals">Include goals in output?</label>
+        <select id="authx_include_goals">
+          <option selected>Yes</option>
+          <option>No</option>
+        </select>
+      </div>
+      <div class="row">
+        <label>Additional disciplines</label>
+        <label><input type="checkbox" class="authx_disc" value="PT"> PT</label>
+        <label><input type="checkbox" class="authx_disc" value="OT"> OT</label>
+        <label><input type="checkbox" class="authx_disc" value="ST"> ST</label>
+        <label><input type="checkbox" class="authx_disc" value="HHA"> HHA</label>
+      </div>
+      <div class="row">
+        <label for="authx_disc_reason">Discipline rationale</label>
+        <input id="authx_disc_reason" type="text" />
+      </div>
+      <!-- Wound details shown only if wounds = Yes -->
+      <div id="authx_wound_block" style="display:none; border:1px solid #eee; padding:10px; margin-top:10px;">
+        <strong>Wound details</strong>
+        <div class="row">
+          <label for="authx_wound_type">Type</label>
+          <input id="authx_wound_type" type="text" />
+        </div>
+        <div class="row">
+          <label for="authx_wound_loc">Location</label>
+          <input id="authx_wound_loc" type="text" />
+        </div>
+        <div class="row">
+          <label for="authx_effective">Effective date</label>
+          <input id="authx_effective" type="date" />
+        </div>
+        <div class="row">
+          <label for="authx_wound_seen">Last seen KP wound care</label>
+          <input id="authx_wound_seen" type="date" />
+        </div>
+        <div class="row">
+          <label for="authx_meas_date">Measurement date</label>
+          <input id="authx_meas_date" type="date" />
+        </div>
+        <div class="row">
+          <label for="authx_loc">Level of care</label>
+          <input id="authx_loc" type="text" />
+        </div>
+        <div class="row">
+          <label for="authx_tx">Tx orders</label>
+          <textarea id="authx_tx"></textarea>
+        </div>
+      </div>
+      <div class="btns">
+        <button type="button" id="authx_build">Build Auth Text</button>
+        <button type="button" id="authx_copy">Copy Auth Output</button>
+        <button type="button" data-copy-section="#authx">Copy Section</button>
+      </div>
+      <div class="row">
+        <label for="authx_out">Auth builder output</label>
+        <textarea id="authx_out" readonly></textarea>
+      </div>
+    </section>
+
+    <!-- Assessments -->
+    <section id="assess">
+      <h2>Assessments</h2>
+      <h3>MAHC-10 Fall Risk Assessment</h3>
+      <div class="row">
+        <label><input type="checkbox" class="mahc" value="History of falls"> History of falls</label>
+        <label><input type="checkbox" class="mahc" value="Medications"> Medications (≥4)</label>
+        <label><input type="checkbox" class="mahc" value="Vision problem"> Vision problem</label>
+        <label><input type="checkbox" class="mahc" value="Cognition impairment"> Cognition impairment</label>
+        <label><input type="checkbox" class="mahc" value="Incontinence"> Incontinence</label>
+        <label><input type="checkbox" class="mahc" value="Mobility issues"> Mobility issues</label>
+        <label><input type="checkbox" class="mahc" value="Age > 85"> Age > 85</label>
+        <label><input type="checkbox" class="mahc" value="Transfer difficulty"> Transfer difficulty</label>
+        <label><input type="checkbox" class="mahc" value="Environmental hazards"> Environmental hazards</label>
+        <label><input type="checkbox" class="mahc" value="Pain"> Pain</label>
+      </div>
+      <div class="row">
+        <label for="mahc_score">MAHC Score</label>
+        <output id="mahc_score">0</output>
+      </div>
+      <h3>M1033 Risk for Hospitalization/ER</h3>
+      <div class="row">
+        <label><input type="checkbox" class="m1033" value="Recent falls"> Recent falls</label>
+        <label><input type="checkbox" class="m1033" value="Multiple hospitalizations"> Multiple hospitalizations</label>
+        <label><input type="checkbox" class="m1033" value="Nonadherence"> Nonadherence</label>
+        <label><input type="checkbox" class="m1033" value="Frailty"> Frailty</label>
+        <label><input type="checkbox" class="m1033" value="Cognitive impairment"> Cognitive impairment</label>
+        <label><input type="checkbox" class="m1033" value="Depression"> Depression</label>
+      </div>
+      <div class="row">
+        <label for="m1033_count">Total count</label>
+        <output id="m1033_count">0</output>
+      </div>
+      <div class="btns">
+        <button type="button" data-copy-section="#assess">Copy Section</button>
+      </div>
+    </section>
+
+    <!-- GG Quick Capture -->
+    <section id="gg">
+      <h2>GG Quick Capture (copy-out)</h2>
+      <div class="grid-2">
+        <div>
+          <strong>Self-Care (GG0130)</strong>
+          <div class="row">
+            <label for="gg_0130a1">Eating</label>
+            <select id="gg_0130a1" class="gg" data-code="GG0130A1">
+              <option value="">—</option>
+              <option>Independent</option>
+              <option>Supervision</option>
+              <option>Partial/Mod assist</option>
+              <option>Max/Dependent</option>
+            </select>
+          </div>
+          <div class="row">
+            <label for="gg_0130b1">Oral hygiene</label>
+            <select id="gg_0130b1" class="gg" data-code="GG0130B1">
+              <option value="">—</option>
+              <option>Independent</option>
+              <option>Supervision</option>
+              <option>Partial/Mod assist</option>
+              <option>Max/Dependent</option>
+            </select>
+          </div>
+          <div class="row">
+            <label for="gg_0130c1">Toileting hygiene</label>
+            <select id="gg_0130c1" class="gg" data-code="GG0130C1">
+              <option value="">—</option>
+              <option>Independent</option>
+              <option>Supervision</option>
+              <option>Partial/Mod assist</option>
+              <option>Max/Dependent</option>
+            </select>
+          </div>
+        </div>
+        <div>
+          <strong>Mobility (GG0170)</strong>
+          <div class="row">
+            <label for="gg_0170b1">Sit to lying</label>
+            <select id="gg_0170b1" class="gg" data-code="GG0170B1">
+              <option value="">—</option>
+              <option>Independent</option>
+              <option>Supervision</option>
+              <option>Partial/Mod assist</option>
+              <option>Max/Dependent</option>
+            </select>
+          </div>
+          <div class="row">
+            <label for="gg_0170c1">Lying to sit</label>
+            <select id="gg_0170c1" class="gg" data-code="GG0170C1">
+              <option value="">—</option>
+              <option>Independent</option>
+              <option>Supervision</option>
+              <option>Partial/Mod assist</option>
+              <option>Max/Dependent</option>
+            </select>
+          </div>
+          <div class="row">
+            <label for="gg_0170d1">Sit to stand</label>
+            <select id="gg_0170d1" class="gg" data-code="GG0170D1">
+              <option value="">—</option>
+              <option>Independent</option>
+              <option>Supervision</option>
+              <option>Partial/Mod assist</option>
+              <option>Max/Dependent</option>
+            </select>
+          </div>
+          <div class="row">
+            <label for="gg_0170j1">Walk 10 feet</label>
+            <select id="gg_0170j1" class="gg" data-code="GG0170J1">
+              <option value="">—</option>
+              <option>Independent</option>
+              <option>Supervision</option>
+              <option>Partial/Mod assist</option>
+              <option>Max/Dependent</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="btns">
+        <button type="button" id="gg_copy">Copy GG summary</button>
+      </div>
+    </section>
+  </main>
+
+  <div id="toast" class="toaster" role="status" aria-live="polite"></div>
+
+  <script>
+  (function(){
+    'use strict';
+
+    var NL = '\n';
+    var STORAGE_KEY = 'hh_toolkit_v1';
+
+    function qs(sel, ctx){ return (ctx||document).querySelector(sel); }
+    function qsa(sel, ctx){ return Array.from((ctx||document).querySelectorAll(sel)); }
+
+    // Toast notification
+    var toastTimer;
+    function toast(msg){
+      var box = qs('#toast');
+      if(!box) return;
+      box.textContent = msg;
+      box.classList.add('show');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(function(){ box.classList.remove('show'); }, 2000);
+    }
+
+    // Clipboard copy
+    function writeClipboard(text){
+      var payload = String(text || '');
+      function fallback(){
+        var ta = document.createElement('textarea');
+        ta.value = payload;
+        ta.style.position = 'fixed';
+        ta.style.left = '-1000px';
+        document.body.appendChild(ta);
+        ta.focus();
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+      }
+      try{
+        if(navigator.clipboard && window.isSecureContext){
+          navigator.clipboard.writeText(payload).then(function(){ toast('Copied'); }).catch(function(){ fallback(); toast('Copied'); });
+        } else {
+          fallback(); toast('Copied');
+        }
+      } catch(e){
+        console.error(e);
+        fallback();
+      }
+    }
+
+    // Template tracking for Copy All: define template IDs that should be considered templates and ignored when unchanged
+    var TEMPLATE_IDS = { 'po_crushed':1, 'po_freq':1, 'fax_header':1, 'wo_stage2':1, 'wo_skintear':1, 'snv_note':1 };
+    var defaultTemplates = {};
+
+    function snapshotDefaultTemplates(){
+      Object.keys(TEMPLATE_IDS).forEach(function(id){
+        var el = document.getElementById(id);
+        if(el) defaultTemplates[id] = String(el.value||'');
+      });
+    }
+    function isTemplateUnchanged(el){
+      if(!el || !el.id) return false;
+      if(!TEMPLATE_IDS[el.id]) return false;
+      return String(el.value||'') === String(defaultTemplates[el.id]||'');
+    }
+
+    // Goals table
+    function addGoalRow(goal, category, due, pct, notes){
+      goal = goal || '';
+      category = category || 'Other';
+      due = due || '';
+      pct = pct == null ? 0 : parseInt(pct);
+      pct = Math.max(0, Math.min(100, pct));
+      notes = notes || '';
+
+      var tbody = qs('#goalbody');
+      if(!tbody) return;
+      var tr = document.createElement('tr');
+      tr.innerHTML = ''
+        + '<td><input type="text" value="' + escapeHtml(goal) + '"/></td>'
+        + '<td><select>'
+        +   '<option value="Medication Education" ' + (category === 'Medication Education' ? 'selected' : '') + '>Medication Education</option>'
+        +   '<option value="Other" ' + (category !== 'Medication Education' ? 'selected' : '') + '>Other</option>'
+        + '</select></td>'
+        + '<td><input type="date" value="' + escapeHtml(due) + '"/></td>'
+        + '<td><input type="range" min="0" max="100" value="' + pct + '"/> <output>' + pct + '</output>%</td>'
+        + '<td><input type="text" value="' + escapeHtml(notes) + '"/></td>'
+        + '<td><button type="button" data-goal-delete>Delete</button></td>';
+      tbody.appendChild(tr);
+      var range = tr.querySelector('input[type="range"]');
+      var out = tr.querySelector('output');
+      if(range && out){
+        range.addEventListener('input', function(){
+          out.textContent = range.value;
+          saveSoon();
+        });
+      }
+      tr.addEventListener('input', saveSoon);
+      tr.addEventListener('change', saveSoon);
+      saveSoon();
+    }
+
+    // Escape HTML for safe insertion into attribute
+    function escapeHtml(str){
+      return String(str || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g,'&gt;').replace(/\"/g,'&quot;').replace(/'/g,'&#39;');
+    }
+
+    // Save and load functions
+    var saveTimer;
+    function saveSoon(){
+      clearTimeout(saveTimer);
+      saveTimer = setTimeout(saveAll, 300);
+    }
+
+    function saveAll(){
+      var data = {};
+      // Save values of all inputs/selects/textareas by id
+      qsa('input[id], textarea[id], select[id]').forEach(function(el){
+        if(el.type === 'file') return;
+        if(el.tagName === 'SELECT' && el.multiple){
+          data[el.id] = Array.from(el.selectedOptions).map(function(o){ return o.value; });
+        } else if(el.type === 'checkbox'){
+          data[el.id] = el.checked;
+        } else {
+          data[el.id] = el.value;
+        }
+      });
+      // Save checkboxes lists (hb, mahc, m1033, authx_disc, socdc)
+      data.hb = qsa('.hb').map(function(cb){ return cb.checked; });
+      data.mahc = qsa('.mahc').map(function(cb){ return cb.checked; });
+      data.m1033 = qsa('.m1033').map(function(cb){ return cb.checked; });
+      data.authx_disc = qsa('.authx_disc').map(function(cb){ return cb.checked; });
+      data.socdc = qsa('.socdc').map(function(cb){ return cb.checked; });
+      // Save goals table
+      data.goals = qsa('#goalbody tr').map(function(tr){
+        return {
+          goal: tr.querySelector('td:nth-child(1) input').value || '',
+          category: tr.querySelector('td:nth-child(2) select').value || 'Other',
+          due: tr.querySelector('td:nth-child(3) input').value || '',
+          pct: tr.querySelector('td:nth-child(4) input').value || '0',
+          notes: tr.querySelector('td:nth-child(5) input').value || ''
+        };
+      });
+      try{
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+      } catch(e){
+        console.error('Save error', e);
+      }
+    }
+
+    function loadAll(){
+      var raw = localStorage.getItem(STORAGE_KEY);
+      if(!raw) return;
+      try{
+        var data = JSON.parse(raw);
+        // restore values
+        Object.keys(data).forEach(function(key){
+          var val = data[key];
+          var el = document.getElementById(key);
+          if(!el) return;
+          if(el.tagName === 'SELECT' && el.multiple && Array.isArray(val)){
+            var want = {};
+            val.forEach(function(v){ want[v] = true; });
+            Array.from(el.options).forEach(function(o){ o.selected = !!want[o.value]; });
+          } else if(el.type === 'checkbox'){
+            el.checked = !!val;
+          } else {
+            el.value = val;
+          }
+        });
+        // restore checkboxes lists
+        var hbArr = data.hb || [];
+        qsa('.hb').forEach(function(cb, i){ cb.checked = !!hbArr[i]; });
+        var mahcArr = data.mahc || [];
+        qsa('.mahc').forEach(function(cb, i){ cb.checked = !!mahcArr[i]; });
+        var m1033Arr = data.m1033 || [];
+        qsa('.m1033').forEach(function(cb, i){ cb.checked = !!m1033Arr[i]; });
+        var discArr = data.authx_disc || [];
+        qsa('.authx_disc').forEach(function(cb, i){ cb.checked = !!discArr[i]; });
+        var socArr = data.socdc || [];
+        qsa('.socdc').forEach(function(cb, i){ cb.checked = !!socArr[i]; });
+        // restore goals
+        var tbody = qs('#goalbody');
+        if(tbody) tbody.innerHTML = '';
+        (data.goals || []).forEach(function(g){
+          addGoalRow(g.goal, g.category, g.due, g.pct, g.notes);
+        });
+        syncAuthxWoundBlock();
+        updateMahcScore();
+        updateM1033Count();
+      } catch(e){
+        console.error('Load error', e);
+      }
+    }
+
+    // Section copy extraction
+    function extractSectionText(sectionEl, opts){
+      opts = opts || {};
+      var includeBlanks = opts.includeBlanks || false;
+      var includeTemplates = opts.includeTemplates || false;
+      var lines = [];
+      var h = sectionEl.querySelector('h2');
+      if(h) lines.push('=== ' + h.textContent.trim() + ' ===');
+      // iterate rows with labels and control
+      qsa('.row', sectionEl).forEach(function(row){
+        var labelEl = row.querySelector('label');
+        if(!labelEl) return;
+        var controls = row.querySelectorAll('input[type="text"], input[type="date"], input[type="number"], select, textarea, output');
+        if(!controls || controls.length === 0) return;
+        if(controls.length === 1){
+          var control = controls[0];
+          var val = '';
+          if(control.tagName === 'SELECT' && control.multiple){
+            val = Array.from(control.selectedOptions).map(function(o){ return o.value.trim(); }).filter(Boolean).join(', ');
+          } else if(control.tagName === 'OUTPUT'){
+            val = control.textContent.trim();
+          } else {
+            val = control.value != null ? String(control.value).trim() : '';
+          }
+          if(!val && !includeBlanks) return;
+          if(control.tagName === 'TEXTAREA' && !includeTemplates && isTemplateUnchanged(control)) return;
+          lines.push(labelEl.textContent.trim() + ': ' + (val || '—'));
+        } else {
+          var parts = [];
+          controls.forEach(function(control){
+            var val = '';
+            if(control.tagName === 'SELECT' && control.multiple){
+              val = Array.from(control.selectedOptions).map(function(o){ return o.value.trim(); }).filter(Boolean).join(', ');
+            } else if(control.tagName === 'OUTPUT'){
+              val = control.textContent.trim();
+            } else {
+              val = control.value != null ? String(control.value).trim() : '';
+            }
+            if(val) parts.push(val);
+          });
+          if(!parts.length && !includeBlanks) return;
+          var combined = parts.join('; ');
+          lines.push(labelEl.textContent.trim() + ': ' + (combined || '—'));
+        }
+      });
+      // Goals table (for auth)
+      if(sectionEl.id === 'auth'){
+        var goals = [];
+        qsa('#goalbody tr').forEach(function(tr){
+          var g = tr.querySelector('td:nth-child(1) input').value.trim();
+          if(!g && !includeBlanks) return;
+          var cat = tr.querySelector('td:nth-child(2) select').value.trim();
+          var due = tr.querySelector('td:nth-child(3) input').value.trim();
+          var pct = tr.querySelector('td:nth-child(4) input').value.trim();
+          var note = tr.querySelector('td:nth-child(5) input').value.trim();
+          goals.push('• ' + (g || '—') + ' | Category: ' + (cat || '—') + ' | Due: ' + (due || '—') + ' | Progress: ' + (pct || '0') + '% | Notes: ' + (note || '—'));
+        });
+        if(goals.length){
+          lines.push(NL + '-- Goals & Progress --');
+          lines.push(goals.join(NL));
+        }
+      }
+      // Template details for po and wound
+      if(sectionEl.id === 'po' || sectionEl.id === 'wound'){
+        qsa('details', sectionEl).forEach(function(det){
+          var ta = det.querySelector('textarea');
+          var sum = det.querySelector('summary');
+          if(!ta) return;
+          var v = ta.value.trim();
+          if(!v && !includeBlanks) return;
+          if(!includeTemplates && isTemplateUnchanged(ta)) return;
+          lines.push(NL + '--- ' + (sum ? sum.textContent.trim() : 'Block') + ' ---');
+          lines.push(v || '—');
+        });
+      }
+      return lines.join(NL);
+    }
+
+    function sectionHasUserInput(sectionEl){
+      var controls = sectionEl.querySelectorAll('input[type="text"], input[type="date"], input[type="number"], select, textarea');
+      for(var i=0; i<controls.length; i++){
+        var c = controls[i];
+        if(c.tagName === 'SELECT'){
+          if(c.multiple){
+            if(Array.from(c.selectedOptions).some(function(o){ return o.value.trim(); })) return true;
+          } else if(c.value && c.value.trim()) return true;
+        } else {
+          var v = c.value != null ? String(c.value).trim() : '';
+          if(!v) continue;
+          if(c.tagName === 'TEXTAREA' && isTemplateUnchanged(c)) continue;
+          return true;
+        }
+      }
+      if(sectionEl.id === 'auth'){
+        return qsa('#goalbody tr').some(function(tr){
+          var g = tr.querySelector('td:nth-child(1) input').value.trim();
+          return !!g;
+        });
+      }
+      return false;
+    }
+
+    function extractAllFilledText(){
+      var outputs = [];
+      qsa('#main section').forEach(function(sec){
+        if(!sectionHasUserInput(sec)) return;
+        outputs.push(extractSectionText(sec, { includeBlanks:false, includeTemplates:false }));
+      });
+      return outputs.join(NL + NL);
+    }
+
+    // GG summary
+    function ggSummary(){
+      var items = qsa('.gg').map(function(sel){
+        var code = sel.getAttribute('data-code') || '';
+        var val = sel.value.trim();
+        if(!code || !val) return '';
+        return code + ': ' + val;
+      }).filter(function(s){ return !!s; });
+      return items.length ? ('GG Summary' + NL + items.join(NL)) : ('GG Summary' + NL + '(no selections)');
+    }
+
+    // Homebound builder
+    function buildHB(){
+      var reasons = [];
+      qsa('.hb').forEach(function(cb){
+        if(cb.checked) reasons.push(cb.value);
+      });
+      var ctx = qs('#hb_context').value.trim();
+      var out = [];
+      if(reasons.length){
+        out.push('Patient is homebound because leaving home requires ' + reasons.join(', ') + '.');
+      }
+      if(ctx){
+        out.push(ctx);
+      }
+      qs('#hb_out').value = out.join(' ');
+      saveSoon();
+    }
+
+    // MAHC score & M1033 count
+    function updateMahcScore(){
+      var c = qsa('.mahc').filter(function(cb){ return cb.checked; }).length;
+      qs('#mahc_score').textContent = String(c);
+    }
+    function updateM1033Count(){
+      var c = qsa('.m1033').filter(function(cb){ return cb.checked; }).length;
+      qs('#m1033_count').textContent = String(c);
+    }
+
+    // AuthX wound toggle
+    function syncAuthxWoundBlock(){
+      var wounds = qs('#authx_wounds').value.trim();
+      var block = qs('#authx_wound_block');
+      if(!block) return;
+      block.style.display = (wounds === 'Yes') ? '' : 'none';
+    }
+
+    // Helper to get selected or custom dx
+    function getSelectedOrCustom(selId, customId){
+      var sel = document.getElementById(selId);
+      var custom = document.getElementById(customId);
+      var s = sel ? sel.value : '';
+      var c = custom ? custom.value.trim() : '';
+      if(s === 'Custom') return c || 'Custom';
+      return c || s;
+    }
+
+    function buildGoalsLines(){
+      var lines = [];
+      qsa('#goalbody tr').forEach(function(tr){
+        var goal = tr.querySelector('td:nth-child(1) input').value.trim();
+        if(!goal) return;
+        var due = tr.querySelector('td:nth-child(3) input').value.trim();
+        var pct = tr.querySelector('td:nth-child(4) input').value.trim();
+        var note = tr.querySelector('td:nth-child(5) input').value.trim();
+        var tail = [];
+        if(pct) tail.push(pct + '%');
+        if(due) tail.push('by ' + due);
+        if(note) tail.push(note);
+        lines.push('- ' + goal + (tail.length ? (' (' + tail.join('; ') + ')') : ''));
+      });
+      return lines.length ? lines.join(NL) : '- —';
+    }
+
+    // Build Skilled Nursing Visit Note from builder inputs
+    function buildSNVNote(){
+      var date = (qs('#snvb_date') && qs('#snvb_date').value.trim()) || '';
+      var timeIn = (qs('#snvb_time_in') && qs('#snvb_time_in').value.trim()) || '';
+      var timeOut = (qs('#snvb_time_out') && qs('#snvb_time_out').value.trim()) || '';
+      var temp = (qs('#snvb_temp') && qs('#snvb_temp').value.trim()) || '';
+      var hr = (qs('#snvb_hr') && qs('#snvb_hr').value.trim()) || '';
+      var bp = (qs('#snvb_bp') && qs('#snvb_bp').value.trim()) || '';
+      var rr = (qs('#snvb_rr') && qs('#snvb_rr').value.trim()) || '';
+      var spo2 = (qs('#snvb_spo2') && qs('#snvb_spo2').value.trim()) || '';
+      var typesSel = qs('#snvb_type');
+      var types = [];
+      if(typesSel){
+        types = Array.from(typesSel.selectedOptions).map(function(o){ return o.value.trim(); }).filter(function(t){ return !!t; });
+      }
+      var otherTypes = (qs('#snvb_type_other') && qs('#snvb_type_other').value.trim()) || '';
+      if(otherTypes){
+        otherTypes.split(',').forEach(function(s){
+          var t = s.trim();
+          if(t) types.push(t);
+        });
+      }
+      var interventions = (qs('#snvb_interventions') && qs('#snvb_interventions').value.trim()) || '';
+      var response = (qs('#snvb_response') && qs('#snvb_response').value.trim()) || '';
+      var plan = (qs('#snvb_plan') && qs('#snvb_plan').value.trim()) || '';
+      var mdNotify = (qs('#snvb_md_notify') && qs('#snvb_md_notify').value.trim()) === 'Yes';
+      var mdDetails = (qs('#snvb_md_details') && qs('#snvb_md_details').value.trim()) || '';
+      var lines = [];
+      if(date) lines.push('DATE: ' + date);
+      if(timeIn || timeOut) lines.push('Time in/out: ' + (timeIn || '—') + ' - ' + (timeOut || '—'));
+      if(types.length) lines.push('Visit type(s): ' + types.join(', '));
+      var vitals = [];
+      if(temp) vitals.push('T ' + temp);
+      if(hr) vitals.push('HR ' + hr);
+      if(bp) vitals.push('BP ' + bp);
+      if(rr) vitals.push('RR ' + rr);
+      if(spo2) vitals.push('SpO₂ ' + spo2 + '%');
+      if(vitals.length) lines.push('VS: ' + vitals.join(', '));
+      if(interventions) lines.push('Interventions: ' + interventions);
+      if(response) lines.push('Patient response: ' + response);
+      if(plan) lines.push('Plan: ' + plan);
+      if(mdNotify){
+        lines.push('MD notified: ' + (mdDetails || 'Yes'));
+      }
+      var out = lines.join(NL);
+      var outEl = qs('#snvb_out');
+      if(outEl) outEl.value = out;
+      saveSoon();
+      return out;
+    }
+
+    function buildAuthXText(){
+      var due = qs('#authx_due').value.trim();
+      var hhplus = qs('#authx_hhplus').value.trim();
+      var wounds = qs('#authx_wounds').value.trim();
+      var primary = getSelectedOrCustom('authx_primary_sel','authx_primary');
+      var rehab = getSelectedOrCustom('authx_rehab_sel','authx_rehab');
+
+      var relatedSel = qs('#authx_related');
+      var related = [];
+      if(relatedSel){
+        related = Array.from(relatedSel.selectedOptions).map(function(o){ return o.value.trim(); }).filter(Boolean);
+      }
+      var relatedOther = qs('#authx_related_other').value.trim();
+      if(relatedOther){
+        related = related.concat(relatedOther.split(',').map(function(s){ return s.trim(); }).filter(Boolean));
+      }
+
+      var livingSel = qs('#authx_living_sel');
+      var living = livingSel ? livingSel.value.trim() : '';
+      var livingCustom = qs('#authx_living_custom').value.trim();
+      if(livingCustom){
+        living = living ? (living + '; ' + livingCustom) : livingCustom;
+      }
+
+      var plofSel = qs('#authx_plof_sel');
+      var plof = plofSel ? plofSel.value.trim() : '';
+      var plofDme = qs('#authx_plof_dme').value.trim();
+      if(plofDme) plof = plof ? (plof + '; DME: ' + plofDme) : ('DME: ' + plofDme);
+
+      var clofSel = qs('#authx_clof_sel');
+      var clof = clofSel ? clofSel.value.trim() : '';
+      var clofNotes = qs('#authx_clof_notes').value.trim();
+      if(clofNotes) clof = clof ? (clof + '; ' + clofNotes) : clofNotes;
+
+      var cgSel = qs('#authx_cg_sel');
+      var cg = cgSel ? cgSel.value.trim() : '';
+      var cgWhen = qs('#authx_cg_when').value.trim();
+      if(cgWhen) cg = cg ? (cg + '; Available: ' + cgWhen) : cgWhen;
+
+      var just = qs('#authx_just').value.trim();
+
+      var freq = qs('#authx_sn_freq').value.trim();
+      var addVisits = qs('#authx_sn_addl').value.trim();
+      var freqLine = freq;
+      if(addVisits) freqLine = freqLine ? (freqLine + ', +' + addVisits + ' visits') : ('+' + addVisits + ' visits');
+
+      var includeGoals = qs('#authx_include_goals').value === 'Yes';
+
+      var disciplines = qsa('.authx_disc').filter(function(cb){ return cb.checked; }).map(function(cb){ return cb.value; });
+      var discReason = qs('#authx_disc_reason').value.trim();
+
+      var woundBlock = '';
+      if(wounds === 'Yes'){
+        var w = [];
+        w.push('WOUNDS: Yes');
+        var wType = qs('#authx_wound_type').value.trim();
+        var wLoc  = qs('#authx_wound_loc').value.trim();
+        var effective = qs('#authx_effective').value.trim();
+        var lastSeen  = qs('#authx_wound_seen').value.trim();
+        var meas      = qs('#authx_meas_date').value.trim();
+        var locLvl    = qs('#authx_loc').value.trim();
+        var tx        = qs('#authx_tx').value.trim();
+        w.push('Wound: ' + (wType || '—') + ' @ ' + (wLoc || '—'));
+        if(effective) w.push('Effective: ' + effective);
+        if(lastSeen) w.push('Last seen KP Wound Care: ' + lastSeen);
+        if(meas) w.push('Measurement date: ' + meas);
+        if(locLvl) w.push('Level of care: ' + locLvl);
+        w.push('Tx orders: ' + (tx || '—'));
+        woundBlock = w.join(NL);
+      } else {
+        woundBlock = 'WOUNDS: No';
+      }
+
+      var hbLine = qs('#hb_out').value.trim();
+
+      var lines = [];
+      if(due) lines.push('AUTH DUE: ' + due);
+      lines.push('HH+: ' + (hhplus || 'No'));
+      lines.push('PRIMARY DX: ' + (primary || '—'));
+      lines.push('SECONDARY/REHAB DX: ' + (rehab || '—'));
+      lines.push('DX RELATED TO HH: ' + (related.length ? related.join(', ') : '—'));
+      lines.push('LIVING SITUATION: ' + (living || '—'));
+      lines.push('PLOF: ' + (plof || '—'));
+      lines.push('CLOF: ' + (clof || '—'));
+      lines.push('TEACHABLE CG: ' + (cg || '—'));
+      if(freqLine) lines.push('SN FREQUENCY: ' + freqLine);
+      if(just) lines.push(NL + 'SKILLED JUSTIFICATION: ' + just);
+      if(includeGoals){
+        lines.push(NL + 'GOALS / CURRENT PROGRESS:');
+        lines.push(buildGoalsLines());
+      }
+      lines.push(NL + woundBlock);
+      if(hbLine) lines.push(NL + 'HOMEBOUND: ' + hbLine);
+      if(disciplines.length){
+        lines.push(NL + 'ADDITIONAL DISCIPLINES: ' + disciplines.join(', '));
+        if(discReason) lines.push('DISCIPLINE RATIONALE: ' + discReason);
+      }
+      lines.push(NL + 'PLAN OF DISCHARGE: Discharge when goals met / pt stabilized / CG demonstrates independent management; MD follow-up in place.');
+      var output = lines.join(NL);
+      qs('#authx_out').value = output;
+      saveSoon();
+      return output;
+    }
+
+    function boot(){
+      snapshotDefaultTemplates();
+      loadAll();
+      // add goal row button
+      var addBtn = qs('#btn-add-goal');
+      if(addBtn) addBtn.addEventListener('click', function(){
+        addGoalRow('', 'Other', '', 0, '');
+      });
+
+      // delete goal row
+      var goalTable = qs('#goaltable');
+      if(goalTable) goalTable.addEventListener('click', function(e){
+        var target = e.target;
+        if(target.getAttribute('data-goal-delete') != null){
+          var tr = target.closest('tr');
+          if(tr) tr.remove();
+          saveSoon();
+        }
+      });
+
+      // Section copy buttons: copy entire section including blanks & templates
+      qsa('button[data-copy-section]').forEach(function(btn){
+        btn.addEventListener('click', function(){
+          var sel = btn.getAttribute('data-copy-section');
+          if(!sel) return;
+          var sec = qs(sel);
+          if(!sec) return;
+          var text = extractSectionText(sec, { includeBlanks:true, includeTemplates:true });
+          if(text) writeClipboard(text);
+        });
+      });
+
+      // Copy all filled text
+      var copyAllBtn = qs('#btn-copy-all');
+      if(copyAllBtn) copyAllBtn.addEventListener('click', function(){
+        var text = extractAllFilledText();
+        if(!text.trim()){
+          toast('Nothing filled yet');
+          return;
+        }
+        writeClipboard(text);
+      });
+
+      // Save button
+      var saveBtn = qs('#btn-save-browser');
+      if(saveBtn) saveBtn.addEventListener('click', function(){
+        saveAll();
+        toast('Saved');
+      });
+
+      // Clear button
+      var clearBtn = qs('#btn-clear');
+      if(clearBtn) clearBtn.addEventListener('click', function(){
+        if(confirm('Clear all fields and stored data?')){
+          localStorage.removeItem(STORAGE_KEY);
+          location.reload();
+        }
+      });
+
+      // Build homebound
+      var hbBtn = qs('#btn-build-hb');
+      if(hbBtn) hbBtn.addEventListener('click', function(){
+        buildHB();
+        toast('Built Homebound');
+      });
+
+      // Build AuthX
+      var buildAuthBtn = qs('#authx_build');
+      if(buildAuthBtn) buildAuthBtn.addEventListener('click', function(){
+        buildAuthXText();
+        toast('Built Auth');
+      });
+      // Copy Auth output
+      var copyAuthBtn = qs('#authx_copy');
+      if(copyAuthBtn) copyAuthBtn.addEventListener('click', function(){
+        var txt = qs('#authx_out').value || '';
+        if(!txt.trim()){
+          toast('No Auth built yet');
+          return;
+        }
+        writeClipboard(txt);
+      });
+
+      // Build SN Visit Note
+      var snvBuildBtn = qs('#snvb_build');
+      if(snvBuildBtn) snvBuildBtn.addEventListener('click', function(){
+        buildSNVNote();
+        toast('Built SN Visit Note');
+      });
+      // Copy SN Visit output
+      var snvCopyBtn = qs('#snvb_copy');
+      if(snvCopyBtn) snvCopyBtn.addEventListener('click', function(){
+        var txt = qs('#snvb_out').value || '';
+        if(!txt.trim()){
+          toast('No SN Visit Note built yet');
+          return;
+        }
+        writeClipboard(txt);
+      });
+
+      // GG copy
+      var ggCopyBtn = qs('#gg_copy');
+      if(ggCopyBtn) ggCopyBtn.addEventListener('click', function(){
+        writeClipboard(ggSummary());
+      });
+
+      // Wound toggle
+      var woundsSel = qs('#authx_wounds');
+      if(woundsSel) woundsSel.addEventListener('change', function(){
+        syncAuthxWoundBlock();
+        saveSoon();
+      });
+
+      // Update scores for MAHC and M1033
+      qsa('.mahc').forEach(function(cb){
+        cb.addEventListener('change', function(){ updateMahcScore(); saveSoon(); });
+      });
+      qsa('.m1033').forEach(function(cb){
+        cb.addEventListener('change', function(){ updateM1033Count(); saveSoon(); });
+      });
+
+      // Save on input changes
+      document.addEventListener('input', function(e){
+        var t = e.target;
+        if(t && (t.tagName === 'INPUT' || t.tagName === 'TEXTAREA' || t.tagName === 'SELECT')){
+          saveSoon();
+        }
+      });
+      document.addEventListener('change', function(e){
+        var t = e.target;
+        if(t && (t.tagName === 'INPUT' || t.tagName === 'TEXTAREA' || t.tagName === 'SELECT')){
+          saveSoon();
+        }
+      });
+    }
+
+    if(document.readyState === 'loading'){
+      document.addEventListener('DOMContentLoaded', boot);
+    } else {
+      boot();
+    }
+  })();
+  </script>
+</body>
+</html>

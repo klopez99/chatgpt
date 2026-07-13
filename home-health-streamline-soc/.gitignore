@@ -1,0 +1,11 @@
+.venv/
+__pycache__/
+*.pyc
+output/
+source_forms/*.pdf
+completed_forms/
+exports/
+*.p12
+*.pfx
+.env
+.DS_Store

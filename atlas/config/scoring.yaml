@@ -1,0 +1,81 @@
+version: 1
+
+verdicts:
+  - BUY
+  - STARTER
+  - WATCH
+  - AVOID
+  - REDUCE
+
+position_stages:
+  0: research_only
+  1: starter
+  2: confirmation_add
+  3: execution_add
+  4: acceleration_add
+  5: harvest_or_reduce
+
+atlas_weights:
+  validator_score: 0.08
+  ceo_value_score: 0.05
+  ceo_founder_mode_score: 0.04
+  bottleneck_score: 0.10
+  power_score: 0.05
+  scarcity_score: 0.08
+  rerating_score: 0.10
+  government_tailwind_score: 0.07
+  ai_infrastructure_exposure: 0.08
+  inflection_catalyst_score: 0.10
+  market_blindness_score: 0.10
+  fiscal_transmission_score: 0.10
+  evidence_quality_score: 0.05
+
+risk_penalties:
+  dilution_risk: 0.10
+  execution_risk: 0.10
+  balance_sheet_risk: 0.08
+  policy_reversal_risk: 0.06
+  valuation_risk: 0.08
+
+fiscal_transmission_weights:
+  productivity_contribution: 0.16
+  fiscal_priority: 0.14
+  inflation_pass_through: 0.12
+  interest_rate_resilience: 0.12
+  implementation_speed: 0.10
+  crowding_out_resilience: 0.10
+  fiscal_dominance_benefit: 0.12
+  deflationary_end_state: 0.14
+
+verdict_thresholds:
+  BUY:
+    minimum_adjusted_score: 8.2
+    minimum_evidence_quality: 7.5
+    maximum_total_risk: 4.5
+  STARTER:
+    minimum_adjusted_score: 7.2
+    minimum_evidence_quality: 6.5
+    maximum_total_risk: 6.0
+  WATCH:
+    minimum_adjusted_score: 5.5
+  AVOID:
+    maximum_adjusted_score: 5.4
+  REDUCE:
+    thesis_deterioration: true
+
+required_fields:
+  - structural_change
+  - market_misunderstanding
+  - beneficiary_mechanism
+  - evidence
+  - scores
+  - valuation_condition
+  - position_stage
+  - base_case
+  - bull_case
+  - bear_case
+  - catalyst_timeline
+  - confirmation_signals
+  - kill_conditions
+  - next_validation_event
+  - final_verdict

@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0f4c5c">
+<title>Home Health Streamline SOC</title>
+<style>
+:root{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#182026;background:#eef3f5}*{box-sizing:border-box}body{margin:0}.top{position:sticky;top:0;z-index:10;background:#0f4c5c;color:#fff;padding:14px 18px;display:flex;gap:12px;align-items:center;justify-content:space-between}.top h1{font-size:20px;margin:0}.actions{display:flex;gap:8px;flex-wrap:wrap}button{font:inherit;border:0;border-radius:10px;padding:11px 14px;font-weight:700;background:#d9e7eb;color:#123}.primary{background:#fff;color:#0f4c5c}.danger{background:#ffe3e3;color:#8c1d18}.wrap{max-width:980px;margin:auto;padding:18px}.notice{background:#fff4cc;border:1px solid #e0c86a;padding:12px;border-radius:12px;margin-bottom:16px}.card{background:white;border-radius:16px;padding:18px;margin:0 0 16px;box-shadow:0 2px 12px #0001;break-inside:avoid}.card h2{margin:0 0 12px;color:#0f4c5c}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}label{display:block;font-weight:650;font-size:14px}input,textarea,select{width:100%;font:inherit;font-size:17px;border:1px solid #b7c5ca;border-radius:10px;padding:11px;margin-top:5px;background:#fff}textarea{min-height:82px;resize:vertical}.checks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.check{display:flex;align-items:center;gap:9px;border:1px solid #d2dde0;border-radius:10px;padding:10px;font-weight:600}.check input{width:22px;height:22px;margin:0}.score{font-size:22px;font-weight:800;color:#0f4c5c}.risk{padding:8px 12px;border-radius:999px;background:#e8f3f5;display:inline-block;font-weight:800}.signature{height:120px;border:2px dashed #78949c;border-radius:12px;background:#fafcfc;touch-action:none;width:100%}.small{font-size:13px;color:#53666c}.missing{outline:3px solid #d93232!important}.footer{text-align:center;color:#60757b;padding:12px 0 28px}@media(max-width:700px){.grid,.grid3,.checks{grid-template-columns:1fr}.top{align-items:flex-start;flex-direction:column}.actions{width:100%}.actions button{flex:1}.wrap{padding:10px}.card{border-radius:12px;padding:14px}}@media print{body{background:#fff}.top,.notice,.no-print{display:none!important}.wrap{max-width:none;padding:0}.card{box-shadow:none;border:1px solid #bbb;border-radius:0;margin:0 0 8px;page-break-inside:avoid}input,textarea,select{border:0;border-bottom:1px solid #888;border-radius:0;padding:5px}.signature{border:1px solid #777}.footer{display:none}}
+</style>
+</head>
+<body>
+<header class="top"><h1>Home Health Streamline SOC</h1><div class="actions"><button class="primary" onclick="saveNow()">Save</button><button onclick="validateForm()">Check Missing</button><button onclick="window.print()">Export PDF</button><button class="danger" onclick="resetForm()">New Patient</button></div></header>
+<main class="wrap">
+<div class="notice"><strong>Privacy:</strong> This app stores data only in this browser on this device. Do not use shared devices. Export and upload the final PDF to Kinnser, then clear the form.</div>
+<form id="socForm">
+<section class="card"><h2>1. Patient & Visit</h2><div class="grid3">
+<label>Patient name<input required name="patient_name" autocomplete="off"></label><label>DOB<input required type="date" name="dob"></label><label>MRN<input name="mrn"></label>
+<label>SOC date<input required type="date" name="soc_date"></label><label>Start time<input type="time" name="start_time"></label><label>End time<input type="time" name="end_time"></label>
+<label>Address<input name="address"></label><label>Phone<input type="tel" name="phone"></label><label>Emergency contact<input name="emergency_contact"></label>
+<label>PCP<input name="pcp"></label><label>Insurance<input name="insurance"></label><label>Referral source<input name="referral_source"></label></div></section>
+
+<section class="card"><h2>2. Visit Snapshot</h2><div class="grid3">
+<label>BP<input name="bp" placeholder="120/80"></label><label>Pulse<input type="number" name="pulse"></label><label>Respirations<input type="number" name="resp"></label>
+<label>Temperature<input name="temp"></label><label>SpO₂<input name="spo2" placeholder="% / oxygen setting"></label><label>Weight<input name="weight"></label>
+<label>Pain 0–10<input type="number" min="0" max="10" name="pain"></label><label>Blood glucose<input name="glucose"></label><label>Height<input name="height"></label></div>
+<label>Hospitalization / reason<textarea name="hospitalization"></textarea></label></section>
+
+<section class="card"><h2>3. BIMS</h2><div class="grid">
+<label>Immediate repetition (0–3)<select class="bims" name="bims_repeat"><option value="">Choose</option><option>0</option><option>1</option><option>2</option><option>3</option></select></label>
+<label>Year (0–3)<select class="bims" name="bims_year"><option value="">Choose</option><option>0</option><option>1</option><option>2</option><option>3</option></select></label>
+<label>Month (0–2)<select class="bims" name="bims_month"><option value="">Choose</option><option>0</option><option>1</option><option>2</option></select></label>
+<label>Day (0–1)<select class="bims" name="bims_day"><option value="">Choose</option><option>0</option><option>1</option></select></label>
+<label>Recall: sock (0–2)<select class="bims" name="bims_sock"><option value="">Choose</option><option>0</option><option>1</option><option>2</option></select></label>
+<label>Recall: blue (0–2)<select class="bims" name="bims_blue"><option value="">Choose</option><option>0</option><option>1</option><option>2</option></select></label>
+<label>Recall: bed (0–2)<select class="bims" name="bims_bed"><option value="">Choose</option><option>0</option><option>1</option><option>2</option></select></label></div>
+<p><span class="score">BIMS: <span id="bimsTotal">0</span>/15</span> <span class="risk" id="bimsRisk">Incomplete</span></p></section>
+
+<section class="card"><h2>4. MAHC-10 Fall Risk</h2><div class="checks" id="mahcChecks"></div><p><span class="score">MAHC-10: <span id="mahcTotal">0</span>/10</span> <span class="risk" id="mahcRisk">Low risk</span></p></section>
+
+<section class="card"><h2>5. Norton Pressure Injury Risk</h2><div class="grid">
+<label>Physical condition<select class="norton" name="norton_physical"><option value="">Choose</option><option value="4">Good — 4</option><option value="3">Fair — 3</option><option value="2">Poor — 2</option><option value="1">Very bad — 1</option></select></label>
+<label>Mental condition<select class="norton" name="norton_mental"><option value="">Choose</option><option value="4">Alert — 4</option><option value="3">Apathetic — 3</option><option value="2">Confused — 2</option><option value="1">Stupor — 1</option></select></label>
+<label>Activity<select class="norton" name="norton_activity"><option value="">Choose</option><option value="4">Ambulant — 4</option><option value="3">Walks with help — 3</option><option value="2">Chairbound — 2</option><option value="1">Bedfast — 1</option></select></label>
+<label>Mobility<select class="norton" name="norton_mobility"><option value="">Choose</option><option value="4">Full — 4</option><option value="3">Slightly limited — 3</option><option value="2">Very limited — 2</option><option value="1">Immobile — 1</option></select></label>
+<label>Incontinence<select class="norton" name="norton_incontinence"><option value="">Choose</option><option value="4">None — 4</option><option value="3">Occasional — 3</option><option value="2">Usually urine — 2</option><option value="1">Double — 1</option></select></label></div>
+<p><span class="score">Norton: <span id="nortonTotal">0</span>/20</span> <span class="risk" id="nortonRisk">Incomplete</span></p></section>
+
+<section class="card"><h2>6. Medication Reconciliation</h2><div class="checks">
+<label class="check"><input type="checkbox" name="med_all_bottles">All containers reviewed</label><label class="check"><input type="checkbox" name="med_discharge_list">Compared with discharge list</label>
+<label class="check"><input type="checkbox" name="med_high_risk">High-risk medications identified</label><label class="check"><input type="checkbox" name="med_caregiver">Medication manager verified</label></div>
+<div class="grid"><label>Allergies<textarea name="allergies"></textarea></label><label>Pharmacy<textarea name="pharmacy"></textarea></label></div>
+<label>Discrepancies / physician notification<textarea name="med_discrepancies"></textarea></label></section>
+
+<section class="card"><h2>7. Homebound & Function</h2><div class="checks">
+<label class="check"><input type="checkbox" name="walker">Walker</label><label class="check"><input type="checkbox" name="cane">Cane</label><label class="check"><input type="checkbox" name="wheelchair">Wheelchair</label><label class="check"><input type="checkbox" name="assist1">One-person assist</label>
+<label class="check"><input type="checkbox" name="dyspnea">Dyspnea</label><label class="check"><input type="checkbox" name="weakness">Weakness</label><label class="check"><input type="checkbox" name="pain_limits">Pain limits mobility</label><label class="check"><input type="checkbox" name="cognitive">Cognitive impairment</label></div>
+<label>Observed homebound statement<textarea required name="homebound"></textarea></label><div class="grid"><label>Prior level of function<textarea name="prior_function"></textarea></label><label>Current level of function<textarea name="current_function"></textarea></label></div></section>
+
+<section class="card"><h2>8. Skilled Need & Clinical Modules</h2><div class="checks">
+<label class="check"><input type="checkbox" name="mod_chf">CHF</label><label class="check"><input type="checkbox" name="mod_copd">COPD / oxygen</label><label class="check"><input type="checkbox" name="mod_dm">Diabetes</label><label class="check"><input type="checkbox" name="mod_foley">Foley</label><label class="check"><input type="checkbox" name="mod_wound">Wound</label><label class="check"><input type="checkbox" name="mod_iv">IV / PICC</label></div>
+<label>Skilled nursing justification<textarea required name="skilled_need"></textarea></label><label>Teaching completed / teach-back response<textarea name="teaching"></textarea></label></section>
+
+<section class="card"><h2>9. Wound / Skin</h2><div class="grid3"><label>Location<input name="wound_location"></label><label>Size<input name="wound_size" placeholder="L × W × D"></label><label>Drainage<input name="wound_drainage"></label></div><label>Assessment and treatment<textarea name="wound_notes"></textarea></label><div class="checks"><label class="check"><input type="checkbox" name="photos">Photos taken</label><label class="check"><input type="checkbox" name="wcws">WCWS completed</label><label class="check"><input type="checkbox" name="orders_verified">Orders verified</label></div></section>
+
+<section class="card"><h2>10. Physician Communication & Orders</h2><label>Calls, verbal orders, labs, supplies, referrals<textarea name="communication"></textarea></label><label>Next visit / planned frequency<textarea name="next_visit"></textarea></label></section>
+
+<section class="card"><h2>11. Consents & Signatures</h2><div class="checks"><label class="check"><input type="checkbox" required name="consent">Consent reviewed</label><label class="check"><input type="checkbox" required name="financial">Financial responsibility reviewed</label><label class="check"><input type="checkbox" name="rights">Patient rights received</label><label class="check"><input type="checkbox" name="privacy">Privacy practices reviewed</label></div>
+<label>Patient / representative signature</label><canvas class="signature" id="patientSig"></canvas><button type="button" class="no-print" onclick="clearSig('patientSig')">Clear signature</button>
+<div class="grid"><label>Printed name<input required name="signer_name"></label><label>Relationship<input name="relationship"></label></div>
+<label>Clinician signature</label><canvas class="signature" id="clinicianSig"></canvas><button type="button" class="no-print" onclick="clearSig('clinicianSig')">Clear signature</button>
+<div class="grid"><label>Clinician name<input required name="clinician_name"></label><label>Date/time<input type="datetime-local" required name="signed_at"></label></div></section>
+
+<section class="card"><h2>12. Completion Checklist</h2><div class="checks"><label class="check"><input type="checkbox" name="done_consents">Consents complete</label><label class="check"><input type="checkbox" name="done_bims">BIMS complete</label><label class="check"><input type="checkbox" name="done_mahc">MAHC complete</label><label class="check"><input type="checkbox" name="done_norton">Norton complete</label><label class="check"><input type="checkbox" name="done_medrec">Med rec complete</label><label class="check"><input type="checkbox" name="done_orders">Orders addressed</label><label class="check"><input type="checkbox" name="done_upload">Ready for Kinnser upload</label></div></section>
+</form><div class="footer">Home Health Streamline SOC • Data remains local to this device</div></main>
+<script>
+const F=document.getElementById('socForm'),KEY='hh_streamline_soc_v1';
+const mahcItems=['Age 65+','Three or more diagnoses','Prior fall in last 3 months','Incontinence','Visual impairment','Impaired functional mobility','Environmental hazards','Polypharmacy (4+ meds)','Pain affecting function','Cognitive impairment'];
+const M=document.getElementById('mahcChecks');mahcItems.forEach((x,i)=>M.insertAdjacentHTML('beforeend',`<label class="check"><input class="mahc" type="checkbox" name="mahc_${i+1}">${i+1}. ${x}</label>`));
+function calc(){let b=[...document.querySelectorAll('.bims')],bc=b.filter(x=>x.value!=='').length,bt=b.reduce((s,x)=>s+(+x.value||0),0);bimsTotal.textContent=bt;bimsRisk.textContent=bc<7?'Incomplete':bt>=13?'Cognitively intact':bt>=8?'Moderate impairment':'Severe impairment';let mt=[...document.querySelectorAll('.mahc')].filter(x=>x.checked).length;mahcTotal.textContent=mt;mahcRisk.textContent=mt>=4?'High fall risk':'Low fall risk';let n=[...document.querySelectorAll('.norton')],nc=n.filter(x=>x.value!=='').length,nt=n.reduce((s,x)=>s+(+x.value||0),0);nortonTotal.textContent=nt;nortonRisk.textContent=nc<5?'Incomplete':nt<=12?'High risk':nt<=14?'Moderate risk':'Lower risk'}
+function serialize(){const d={};new FormData(F).forEach((v,k)=>d[k]=v);F.querySelectorAll('input[type=checkbox]').forEach(x=>d[x.name]=x.checked);d.patientSig=patientSig.toDataURL();d.clinicianSig=clinicianSig.toDataURL();return d}
+function restore(){const raw=localStorage.getItem(KEY);if(!raw)return;const d=JSON.parse(raw);Object.entries(d).forEach(([k,v])=>{const x=F.elements[k];if(x){if(x.type==='checkbox')x.checked=!!v;else x.value=v}});['patientSig','clinicianSig'].forEach(id=>{if(d[id]){const im=new Image;im.onload=()=>document.getElementById(id).getContext('2d').drawImage(im,0,0);im.src=d[id]}});calc()}
+function saveNow(){localStorage.setItem(KEY,JSON.stringify(serialize()));alert('Saved locally on this device.')}
+function validateForm(){document.querySelectorAll('.missing').forEach(x=>x.classList.remove('missing'));let bad=[...F.querySelectorAll(':invalid')];bad.forEach(x=>x.classList.add('missing'));if(bad.length){bad[0].scrollIntoView({behavior:'smooth',block:'center'});alert(`${bad.length} required field(s) are missing.`)}else alert('Required fields are complete. Review scoring and signatures before export.')}
+function resetForm(){if(!confirm('Clear this patient from the device and start a new SOC?'))return;localStorage.removeItem(KEY);F.reset();clearSig('patientSig');clearSig('clinicianSig');calc()}
+function setupCanvas(c){function size(){const img=c.toDataURL();c.width=c.clientWidth*devicePixelRatio;c.height=c.clientHeight*devicePixelRatio;c.getContext('2d').scale(devicePixelRatio,devicePixelRatio);if(img.length>100){const im=new Image;im.onload=()=>c.getContext('2d').drawImage(im,0,0,c.clientWidth,c.clientHeight);im.src=img}}size();let draw=false,ctx=c.getContext('2d');ctx.lineWidth=2.2;ctx.lineCap='round';function pos(e){const r=c.getBoundingClientRect(),p=e.touches?e.touches[0]:e;return [p.clientX-r.left,p.clientY-r.top]}function start(e){e.preventDefault();draw=true;ctx.beginPath();ctx.moveTo(...pos(e))}function move(e){if(!draw)return;e.preventDefault();ctx.lineTo(...pos(e));ctx.stroke()}function end(){draw=false;localStorage.setItem(KEY,JSON.stringify(serialize()))}['mousedown','touchstart'].forEach(x=>c.addEventListener(x,start,{passive:false}));['mousemove','touchmove'].forEach(x=>c.addEventListener(x,move,{passive:false}));['mouseup','mouseleave','touchend'].forEach(x=>c.addEventListener(x,end));}
+function clearSig(id){const c=document.getElementById(id);c.getContext('2d').clearRect(0,0,c.width,c.height)}
+F.addEventListener('input',()=>{calc();clearTimeout(window.t);window.t=setTimeout(()=>localStorage.setItem(KEY,JSON.stringify(serialize())),500)});['patientSig','clinicianSig'].forEach(id=>setupCanvas(document.getElementById(id)));restore();calc();
+</script>
+</body></html>

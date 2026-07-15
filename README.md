@@ -1,34 +1,18 @@
 # Nursing Charting & Kinnser Workflow Toolkit
 
-This repository contains a practical, clinician-controlled toolkit for home-health nursing charting and daily workflow in WellSky Home Health & Hospice / Kinnser.
+This repository contains a starter blueprint and first local prototype for building an assistant that helps a licensed clinician with home-health nursing charting and daily workflow in WellSky Home Health & Hospice (formerly Kinnser) at `kinnser.net`.
 
-The project is intentionally designed as a **drafting and workflow copilot**, not an autonomous EMR bot.
+## Current prototype
 
-## Start here
+The first implementation is a dependency-free browser app for a clinician-controlled documentation draft workflow:
 
-Open the offline field toolkit:
+- Structured visit-fact form for de-identified test data.
+- Editable draft sections for visit narrative, teaching/response, medication concerns, care coordination, and follow-up tasks.
+- QA flags for missing required fields, wound detail gaps, medication follow-up gaps, teaching without response, intervention response gaps, pain contradictions, and unresolved uncertainty.
+- Explicit clinician approval gate before copying approved draft text.
+- No Kinnser connection, no credential handling, no patient-data storage, and no EMR submission.
 
-```text
-app/offline-field-toolkit.html
-```
-
-You can download/open that file in Safari or Chrome on iPhone, iPad, Mac, or Windows. It is a single-file HTML tool with no external dependencies.
-
-Current sections:
-
-- Skilled Nursing Visit Note
-- Follow-Up Authorization / Get Auth
-- Physician Order Draft
-- Wound Documentation Block
-- QA Completeness Check
-
-Basic workflow:
-
-1. Enter or dictate visit facts.
-2. Generate a copy block.
-3. Review and edit the draft.
-4. Copy only verified text into Kinnser.
-5. Manually validate, sign, and submit in Kinnser.
+Open `index.html` in a browser to try the prototype locally. Run `npm test` to execute the dependency-free drafting and QA tests.
 
 ## Goal
 

@@ -1,5 +1,146 @@
 <!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Kinnser Nursing Drafting Prototype</title>
+    <link rel="stylesheet" href="src/styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">Clinician-controlled prototype</p>
+        <h1>Nursing charting draft assistant</h1>
+      </div>
+      <p class="status-pill">No EMR submission</p>
+    </header>
+
+    <main class="layout">
+      <section class="panel input-panel" aria-labelledby="input-heading">
+        <div class="section-heading">
+          <h2 id="input-heading">Visit facts</h2>
+          <p>Use de-identified test data until HIPAA/vendor review is complete.</p>
+        </div>
+
+        <form id="visit-form">
+          <div class="grid two">
+            <label>
+              Visit type
+              <input id="visitType" name="visitType" autocomplete="off" placeholder="SN visit, PRN, recert" />
+            </label>
+            <label>
+              Date/time
+              <input id="visitDate" name="visitDate" autocomplete="off" placeholder="06/06/2026 10:00 AM" />
+            </label>
+          </div>
+
+          <div class="grid two">
+            <label>
+              Patient alias or initials
+              <input id="patientAlias" name="patientAlias" autocomplete="off" placeholder="AB or agency alias" />
+            </label>
+            <label>
+              Primary problem
+              <input id="primaryProblem" name="primaryProblem" autocomplete="off" placeholder="CHF, wound care, med teaching" />
+            </label>
+          </div>
+
+          <label>
+            Subjective report
+            <textarea id="subjective" name="subjective" rows="3"></textarea>
+          </label>
+          <label>
+            Vitals and objective findings
+            <textarea id="objective" name="objective" rows="4"></textarea>
+          </label>
+          <label>
+            Skilled interventions performed
+            <textarea id="interventions" name="interventions" rows="4"></textarea>
+          </label>
+          <label>
+            Medication changes or concerns
+            <textarea id="medications" name="medications" rows="3"></textarea>
+          </label>
+          <label>
+            Wounds, measurements, and treatment
+            <textarea id="wounds" name="wounds" rows="3"></textarea>
+          </label>
+          <label>
+            Teaching provided
+            <textarea id="teaching" name="teaching" rows="3"></textarea>
+          </label>
+          <label>
+            Patient/caregiver response
+            <textarea id="response" name="response" rows="3"></textarea>
+          </label>
+          <label>
+            Care coordination
+            <textarea id="coordination" name="coordination" rows="3"></textarea>
+          </label>
+          <label>
+            Follow-up plan, supplies, orders, labs, referrals
+            <textarea id="followUp" name="followUp" rows="3"></textarea>
+          </label>
+          <label>
+            Anything uncertain or not assessed
+            <textarea id="uncertainty" name="uncertainty" rows="3"></textarea>
+          </label>
+
+          <div class="actions">
+            <button type="submit">Generate draft</button>
+            <button type="button" class="secondary" id="clear-button">Clear</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="panel output-panel" aria-labelledby="output-heading">
+        <div class="section-heading">
+          <h2 id="output-heading">Draft for nurse review</h2>
+          <p>Edit before copying into Kinnser. Final validation and signing stay manual.</p>
+        </div>
+
+        <div class="safeguards" role="note">
+          <strong>Safeguards:</strong> This tool drafts only from entered facts, does not save data, and does not connect to Kinnser.
+        </div>
+
+        <label>
+          Visit narrative
+          <textarea id="draftNarrative" rows="8"></textarea>
+        </label>
+        <label>
+          Teaching and response
+          <textarea id="draftTeaching" rows="5"></textarea>
+        </label>
+        <label>
+          Medication concerns
+          <textarea id="draftMeds" rows="4"></textarea>
+        </label>
+        <label>
+          Care coordination
+          <textarea id="draftCoordination" rows="4"></textarea>
+        </label>
+        <label>
+          Follow-up checklist
+          <textarea id="draftFollowUp" rows="5"></textarea>
+        </label>
+
+        <div class="qa-box">
+          <h3>QA flags</h3>
+          <ul id="qa-list">
+            <li>Generate a draft to run completeness checks.</li>
+          </ul>
+        </div>
+
+        <label class="approval">
+          <input type="checkbox" id="clinician-approved" />
+          I reviewed and approved this draft for manual use.
+        </label>
+        <button type="button" class="copy-button" id="copy-button" disabled>Copy approved draft</button>
+      </section>
+    </main>
+
+    <script src="src/app.js"></script>
+  </body>
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">

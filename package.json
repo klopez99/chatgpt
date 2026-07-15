@@ -1,0 +1,10 @@
+{
+  "name": "kinnser-nursing-charting-prototype",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Clinician-controlled drafting prototype for Kinnser/WellSky nursing documentation workflows.",
+  "scripts": {
+    "test": "node tests/draft.test.js"
+  },
+  "devDependencies": {}
+}

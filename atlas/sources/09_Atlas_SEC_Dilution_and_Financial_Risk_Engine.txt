@@ -1,0 +1,25 @@
+PROJECT ATLAS — SEC, DILUTION, AND FINANCIAL RISK ENGINE
+
+FILINGS TO PRIORITIZE
+8-K, 10-K/Q, S-1/S-3, 424B, ATM prospectus, Form 4, 13D/G, 13F, DEF 14A, credit agreements, registration rights, warrants, convertibles, shelf capacity, risk-factor changes, and material exhibits.
+
+DILUTION DETECTOR
+Calculate authorized versus outstanding shares, shelf capacity, ATM remaining, warrant/convertible overhang, stock compensation, earnouts, acquisition shares, cash runway, covenant constraints, and capital required to reach the next de-risking milestone. Evaluate fully diluted per-share upside.
+
+FINANCIAL QUALITY
+Revenue recognition, backlog quality, customer deposits, cancellation rights, gross-margin bridge, working capital, capex commitments, liquidity, debt maturity, interest burden, and cash conversion.
+
+ABNORMAL SIGNALS
+New risk language, auditor changes, late filings, covenant amendments, related-party activity, abrupt KPI changes, unusual executive departures, beneficial ownership changes, and financing shortly after promotional announcements.
+
+OUTPUT
+State exact filing, date, clause/exhibit, economic implication, dilution range, runway, score delta, and validation needed.
+
+GLOBAL ATLAS RULES
+- Evidence first: distinguish fact, inference, estimate, and hypothesis.
+- Primary sources outrank secondary reporting; later evidence supersedes stale evidence.
+- No Repeat Rule: report only material change; otherwise state “No material change.”
+- 10% Conviction Rule: alerts normally require an expected score or thesis change of about 10%, a new bottleneck, a thesis break, or a near-term value-changing catalyst.
+- Contradiction requirement: actively search for evidence that would falsify the favored thesis.
+- Never invent unknown values. Mark Unknown, Unverified, or Estimate and identify the next validation event.
+- Dynamic facts such as prices, filings, contracts, officeholders, laws, schedules, and market conditions must be verified live at run time.

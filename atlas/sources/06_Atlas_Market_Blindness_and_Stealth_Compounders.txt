@@ -1,0 +1,40 @@
+PROJECT ATLAS — MARKET BLINDNESS AND STEALTH COMPOUNDERS
+
+MARKET BLINDNESS SOURCES
+Small market cap; confusing segment mix; legacy business masking a new engine; OTC or low analyst coverage; local/regulatory evidence not yet in financial media; long qualification cycles; misunderstood accounting; customer NDA; asset value not visible in current revenue; temporary earnings depression; second-order exposure.
+
+STEALTH COMPOUNDER TEST
+Look for recurring or repeatable demand, disciplined reinvestment, rising returns on incremental capital, embedded customer relationships, capacity expansion with visible demand, conservative balance sheet, and a runway longer than the market assumes.
+
+FALSE STEALTH WARNING
+Low awareness is not automatically opportunity. Reject stories with promotional management, serial pivots, unfinanceable capex, no customer proof, commodity economics, persistent negative gross margin, or dependence on one speculative event.
+
+RE-RATING PATH
+Identify the exact sequence needed for recognition: validation → bookings → backlog → revenue → margin → cash flow → analyst coverage/index inclusion/institutional ownership. State which step the company is on now.
+
+BLINDNESS SCORE INPUTS
+Coverage scarcity, narrative mismatch, hidden asset, complexity discount, timing mismatch, institutional constraints, and evidence that sophisticated validators are acting before broad awareness.
+
+ATLAS STEALTH COMPOUNDER ENGINE (ASCE)
+Objective: find overlooked U.S.-listed companies that could plausibly compound or re-rate 3–10× over 3–7 years by becoming critical infrastructure suppliers. Treat this as an upside search target, not a forecast or promise.
+
+STEALTH SCORE (0–100)
+AI/strategic infrastructure exposure 20%; bottleneck ownership 20%; revenue inflection potential 15%; market blindness 15%; CEO execution/capital allocation 10%; balance-sheet strength 10%; asset scarcity 5%; government tailwinds 5%.
+
+HIDDEN SIGNALS
+Quiet capacity expansions; manufacturing-line additions; land or power-position acquisitions; utility interconnection requests; county approvals; DOE/DoD/national-lab relationships; infrastructure hiring; insider accumulation; improving fundamentals with falling short interest; and supply agreements for transformers, cooling, switchgear, optics, memory, robotics, or advanced materials.
+
+GRADUATION SYSTEM
+Observed → Emerging → Validated → High Conviction → Core Holding Candidate. Every graduation requires new independent evidence. Demote or move to the Kill List when evidence weakens, financing becomes destructive, or the re-rating path breaks.
+
+REQUIRED STEALTH OUTPUT
+Current graduation stage; Stealth Score; 12-month re-rating probability estimate; 3–7 year upside mechanism; evidence confidence; primary catalyst; failure mode; and next validation event.
+
+GLOBAL ATLAS RULES
+- Evidence first: distinguish fact, inference, estimate, and hypothesis.
+- Primary sources outrank secondary reporting; later evidence supersedes stale evidence.
+- No Repeat Rule: report only material change; otherwise state “No material change.”
+- 10% Conviction Rule: alerts normally require an expected score or thesis change of about 10%, a new bottleneck, a thesis break, or a near-term value-changing catalyst.
+- Contradiction requirement: actively search for evidence that would falsify the favored thesis.
+- Never invent unknown values. Mark Unknown, Unverified, or Estimate and identify the next validation event.
+- Dynamic facts such as prices, filings, contracts, officeholders, laws, schedules, and market conditions must be verified live at run time.

@@ -1,0 +1,28 @@
+PROJECT ATLAS — NETWORKING, OPTICS, AND FIBER
+
+STACK
+NIC/DPU → switch silicon → switches/routers → copper/active electrical cables → transceivers → lasers/modulators/DSP → fiber → metro/long-haul/interconnect.
+
+DRIVERS
+Scale-up versus scale-out traffic, cluster size, training/inference mix, latency, power per bit, and data-center campus geography.
+
+BOTTLENECKS
+800G/1.6T qualification, optical components, laser capacity, packaging, DSP, fiber routes, installation, and network operating expertise.
+
+VALIDATION
+Customer design wins, production qualification, shipments rather than samples, yield, capacity expansion, lead times, interoperability, and margin capture.
+
+SECOND-ORDER EFFECTS
+Fiber construction, test/measurement, connector cleaning, network timing, power management, and optical packaging.
+
+RISK
+Rapid price erosion, standards transitions, customer concentration, inventory corrections, Chinese competition, and hyperscaler custom designs.
+
+GLOBAL ATLAS RULES
+- Evidence first: distinguish fact, inference, estimate, and hypothesis.
+- Primary sources outrank secondary reporting; later evidence supersedes stale evidence.
+- No Repeat Rule: report only material change; otherwise state “No material change.”
+- 10% Conviction Rule: alerts normally require an expected score or thesis change of about 10%, a new bottleneck, a thesis break, or a near-term value-changing catalyst.
+- Contradiction requirement: actively search for evidence that would falsify the favored thesis.
+- Never invent unknown values. Mark Unknown, Unverified, or Estimate and identify the next validation event.
+- Dynamic facts such as prices, filings, contracts, officeholders, laws, schedules, and market conditions must be verified live at run time.

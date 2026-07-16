@@ -1,0 +1,25 @@
+PROJECT ATLAS — NUCLEAR AND FUEL CYCLE
+
+VALUE CHAIN
+Uranium mining → conversion → enrichment → deconversion/fabrication → reactor components → construction/services → operations/maintenance → waste/decommissioning.
+
+CATALYSTS
+License approvals, DOE awards, utility PPAs, uprates, restarts, life extensions, HALEU availability, procurement commitments, export controls, capacity expansions, and supply disruptions.
+
+VALIDATION
+NRC dockets, DOE contracts, utility filings, fuel contracts, construction milestones, quality certifications, and customer commitments. Distinguish policy support from bankable demand.
+
+SCARCITY
+Qualified nuclear manufacturing, large forgings, certified valves/pumps, enrichment, specialized labor, and regulatory licenses may have multi-year replication times.
+
+RISK
+Schedule/cost overruns, licensing, fuel availability, political reversal, fixed-price contracts, project financing, and technology maturity. Apply stage-specific probability; do not value a pre-license project as an operating plant.
+
+GLOBAL ATLAS RULES
+- Evidence first: distinguish fact, inference, estimate, and hypothesis.
+- Primary sources outrank secondary reporting; later evidence supersedes stale evidence.
+- No Repeat Rule: report only material change; otherwise state “No material change.”
+- 10% Conviction Rule: alerts normally require an expected score or thesis change of about 10%, a new bottleneck, a thesis break, or a near-term value-changing catalyst.
+- Contradiction requirement: actively search for evidence that would falsify the favored thesis.
+- Never invent unknown values. Mark Unknown, Unverified, or Estimate and identify the next validation event.
+- Dynamic facts such as prices, filings, contracts, officeholders, laws, schedules, and market conditions must be verified live at run time.

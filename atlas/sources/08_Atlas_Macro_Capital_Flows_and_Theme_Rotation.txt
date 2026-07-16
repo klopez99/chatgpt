@@ -1,0 +1,25 @@
+PROJECT ATLAS — MACRO, CAPITAL FLOWS, AND THEME ROTATION
+
+MACRO LENSES
+Rates and cost of capital; fiscal policy; industrial policy; AI capex; energy prices; grid reliability; reshoring; defense budgets; commodity supply; geopolitics; currency; credit availability. Macro should modify assumptions, not replace company evidence.
+
+CAPITAL FLOW TRACKER
+Monitor sector/ETF flows, institutional ownership changes, index events, credit spreads, secondary offerings, venture/private financing, hyperscaler capex, utility rate-base plans, and government awards. Separate mechanical flows from informed conviction.
+
+THEME ROTATION
+Map stages: narrative emergence → capital formation → equipment orders → capacity build → operational bottleneck → earnings realization → overbuild/commoditization. Find the next beneficiary, not the prior winner.
+
+REGIME TEST
+Monthly ask whether the dominant constraint, funding environment, policy direction, or customer economics changed. Reweight scores if rates, power availability, or policy materially alter project viability.
+
+MACRO INVALIDATION
+A favorable theme cannot rescue a company with weak unit economics, financing, governance, or customer proof.
+
+GLOBAL ATLAS RULES
+- Evidence first: distinguish fact, inference, estimate, and hypothesis.
+- Primary sources outrank secondary reporting; later evidence supersedes stale evidence.
+- No Repeat Rule: report only material change; otherwise state “No material change.”
+- 10% Conviction Rule: alerts normally require an expected score or thesis change of about 10%, a new bottleneck, a thesis break, or a near-term value-changing catalyst.
+- Contradiction requirement: actively search for evidence that would falsify the favored thesis.
+- Never invent unknown values. Mark Unknown, Unverified, or Estimate and identify the next validation event.
+- Dynamic facts such as prices, filings, contracts, officeholders, laws, schedules, and market conditions must be verified live at run time.

@@ -1,0 +1,28 @@
+PROJECT ATLAS — COMPUTE, SEMICONDUCTORS, MEMORY, AND PACKAGING
+
+STACK
+Accelerators/CPUs → HBM/DRAM/NAND → advanced packaging/interposers/substrates → power delivery → test/burn-in → servers/racks → software utilization.
+
+BOTTLENECKS
+HBM bandwidth and yields, CoWoS/advanced packaging, substrates, test capacity, power delivery, optical I/O, specialty materials, and memory-controller/IP constraints.
+
+MEMORY TEST
+Determine whether the constraint is bits, bandwidth, latency, packaging, controller/IP, or customer qualification. Track supply additions and pricing cycles because scarcity can reverse quickly.
+
+VALIDATION
+Foundry and memory capex, customer qualification, tool orders, capacity utilization, lead times, export rules, technical benchmarks, and revenue concentration.
+
+PUBLIC-MARKET ANGLES
+Equipment, materials, test, thermal, memory IP, packaging, substrates, power semiconductors, and specialty manufacturing—especially smaller suppliers whose revenue inflects after qualification.
+
+RISK
+Cyclic overbuild, customer insourcing, node transitions, export restrictions, technological substitution, and capex timing.
+
+GLOBAL ATLAS RULES
+- Evidence first: distinguish fact, inference, estimate, and hypothesis.
+- Primary sources outrank secondary reporting; later evidence supersedes stale evidence.
+- No Repeat Rule: report only material change; otherwise state “No material change.”
+- 10% Conviction Rule: alerts normally require an expected score or thesis change of about 10%, a new bottleneck, a thesis break, or a near-term value-changing catalyst.
+- Contradiction requirement: actively search for evidence that would falsify the favored thesis.
+- Never invent unknown values. Mark Unknown, Unverified, or Estimate and identify the next validation event.
+- Dynamic facts such as prices, filings, contracts, officeholders, laws, schedules, and market conditions must be verified live at run time.

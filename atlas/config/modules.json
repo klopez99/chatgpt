@@ -1,0 +1,67 @@
+{
+  "version": "1.0.0",
+  "source_count": 25,
+  "source_directory": "sources",
+  "router": "00_Atlas_Master_Index_and_Router.txt",
+  "commands": {
+    "run atlas": {
+      "mode": "daily",
+      "modules": [0, 1, 2, 3, 4, 5, 24],
+      "description": "Material-change scan; add routed domain modules."
+    },
+    "deep atlas rebuild": {
+      "mode": "deep",
+      "modules": "all",
+      "description": "Full 25-source rebuild and re-score."
+    },
+    "weekly atlas rebuild": {
+      "mode": "weekly",
+      "modules": "all",
+      "description": "Full thesis rebuild; output changed conclusions only."
+    },
+    "monthly atlas rebuild": {
+      "mode": "monthly",
+      "modules": "all",
+      "description": "Regime, bottleneck, calibration, and watchlist rebuild."
+    }
+  },
+  "domain_routes": {
+    "sec_dilution_financial_risk": [9],
+    "power_grid_utility": [10],
+    "data_centers_land_permitting_water": [11],
+    "nuclear_fuel_cycle": [12],
+    "cooling_thermal_water": [13],
+    "compute_semiconductors_memory_packaging": [14],
+    "networking_optics_fiber": [15],
+    "robotics_autonomy_manufacturing": [16],
+    "defense_aerospace_government": [17],
+    "electrification_materials_industrial": [18]
+  },
+  "modules": [
+    {"id": 0, "file": "00_Atlas_Master_Index_and_Router.txt", "title": "Atlas Master Index and Router", "kind": "core"},
+    {"id": 1, "file": "01_Atlas_Principles_Evidence_and_Research.txt", "title": "Atlas Principles Evidence and Research", "kind": "core"},
+    {"id": 2, "file": "02_Atlas_Scoring_and_Conviction_Engine.txt", "title": "Atlas Scoring and Conviction Engine", "kind": "core"},
+    {"id": 3, "file": "03_Atlas_Scan_Schedule_and_Signal_Cascade.txt", "title": "Atlas Scan Schedule and Signal Cascade", "kind": "core"},
+    {"id": 4, "file": "04_Atlas_Decision_State_Journal_Kill_List_Watchlists.txt", "title": "Atlas Decision State Journal Kill List Watchlists", "kind": "core"},
+    {"id": 5, "file": "05_Atlas_Bottleneck_and_Second_Order_System.txt", "title": "Atlas Bottleneck and Second Order System", "kind": "core"},
+    {"id": 6, "file": "06_Atlas_Market_Blindness_and_Stealth_Compounders.txt", "title": "Atlas Market Blindness and Stealth Compounders", "kind": "core"},
+    {"id": 7, "file": "07_Atlas_Leadership_Insiders_and_Capital_Allocation.txt", "title": "Atlas Leadership Insiders and Capital Allocation", "kind": "core"},
+    {"id": 8, "file": "08_Atlas_Macro_Capital_Flows_and_Theme_Rotation.txt", "title": "Atlas Macro Capital Flows and Theme Rotation", "kind": "core"},
+    {"id": 9, "file": "09_Atlas_SEC_Dilution_and_Financial_Risk_Engine.txt", "title": "Atlas SEC Dilution and Financial Risk Engine", "kind": "domain"},
+    {"id": 10, "file": "10_Atlas_Power_Grid_and_Utility_Framework.txt", "title": "Atlas Power Grid and Utility Framework", "kind": "domain"},
+    {"id": 11, "file": "11_Atlas_Data_Centers_Land_Permitting_and_Water.txt", "title": "Atlas Data Centers Land Permitting and Water", "kind": "domain"},
+    {"id": 12, "file": "12_Atlas_Nuclear_and_Fuel_Cycle_Framework.txt", "title": "Atlas Nuclear and Fuel Cycle Framework", "kind": "domain"},
+    {"id": 13, "file": "13_Atlas_Cooling_Thermal_and_Water_Framework.txt", "title": "Atlas Cooling Thermal and Water Framework", "kind": "domain"},
+    {"id": 14, "file": "14_Atlas_Compute_Semiconductors_Memory_and_Packaging.txt", "title": "Atlas Compute Semiconductors Memory and Packaging", "kind": "domain"},
+    {"id": 15, "file": "15_Atlas_Networking_Optics_and_Fiber_Framework.txt", "title": "Atlas Networking Optics and Fiber Framework", "kind": "domain"},
+    {"id": 16, "file": "16_Atlas_Robotics_Autonomy_and_Advanced_Manufacturing.txt", "title": "Atlas Robotics Autonomy and Advanced Manufacturing", "kind": "domain"},
+    {"id": 17, "file": "17_Atlas_Defense_Aerospace_and_Government_Framework.txt", "title": "Atlas Defense Aerospace and Government Framework", "kind": "domain"},
+    {"id": 18, "file": "18_Atlas_Electrification_Materials_and_Industrial_Infrastructure.txt", "title": "Atlas Electrification Materials and Industrial Infrastructure", "kind": "domain"},
+    {"id": 19, "file": "19_Atlas_Prediction_Catalyst_and_Time_Horizon_Engine.txt", "title": "Atlas Prediction Catalyst and Time Horizon Engine", "kind": "cross_domain"},
+    {"id": 20, "file": "20_Atlas_Pattern_Library_and_Rerating_Model.txt", "title": "Atlas Pattern Library and Rerating Model", "kind": "cross_domain"},
+    {"id": 21, "file": "21_Atlas_Portfolio_Review_and_Positioning.txt", "title": "Atlas Portfolio Review and Positioning", "kind": "cross_domain"},
+    {"id": 22, "file": "22_Atlas_Weekly_and_Monthly_Rebuild.txt", "title": "Atlas Weekly and Monthly Rebuild", "kind": "cross_domain"},
+    {"id": 23, "file": "23_Atlas_Red_Team_Risk_and_Unknown_Unknowns.txt", "title": "Atlas Red Team Risk and Unknown Unknowns", "kind": "cross_domain"},
+    {"id": 24, "file": "24_Atlas_Output_Contract_and_Domain_Registry.txt", "title": "Atlas Output Contract and Domain Registry", "kind": "output"}
+  ]
+}

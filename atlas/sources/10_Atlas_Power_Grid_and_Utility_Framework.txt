@@ -1,0 +1,28 @@
+PROJECT ATLAS — POWER, GRID, AND UTILITIES
+
+SYSTEM MAP
+Generation → fuel → transmission → substations → transformers/switchgear → distribution → interconnection → behind-the-meter systems → end user.
+
+KEY BOTTLENECKS
+Firm generation, queue delays, transmission rights-of-way, large power transformers, gas turbines, switchgear, protection equipment, skilled labor, permitting, and utility cost allocation.
+
+EVIDENCE SOURCES
+FERC, NERC, RTO/ISO queues, utility IRPs and rate cases, state commissions, municipal utilities, interconnection agreements, procurement awards, transformer lead times, and local permits.
+
+POWER SCORE
+Assess secured megawatts, firmness, price, energization date, utility counterparty, interconnection status, redundancy, expansion rights, and whether power is contracted or merely claimed.
+
+PUBLIC-MARKET CHAINS
+Utilities, independent power, turbines, transformers, switchgear, grid engineering, transmission construction, backup power, storage, power management, and demand response. Distinguish regulated rate-base growth from speculative merchant exposure.
+
+RED FLAGS
+Unfunded generation claims, non-binding power MOUs, queue position without upgrades, community opposition, unrealistic energization, and economics dependent on exceptionally low power prices.
+
+GLOBAL ATLAS RULES
+- Evidence first: distinguish fact, inference, estimate, and hypothesis.
+- Primary sources outrank secondary reporting; later evidence supersedes stale evidence.
+- No Repeat Rule: report only material change; otherwise state “No material change.”
+- 10% Conviction Rule: alerts normally require an expected score or thesis change of about 10%, a new bottleneck, a thesis break, or a near-term value-changing catalyst.
+- Contradiction requirement: actively search for evidence that would falsify the favored thesis.
+- Never invent unknown values. Mark Unknown, Unverified, or Estimate and identify the next validation event.
+- Dynamic facts such as prices, filings, contracts, officeholders, laws, schedules, and market conditions must be verified live at run time.

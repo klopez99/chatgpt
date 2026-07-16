@@ -1,14 +1,16 @@
-# Project Atlas Action Engine
+# Project Atlas OS
 
-Project Atlas converts macro, policy, regulatory, company, and market signals into explicit capital decisions.
+Project Atlas converts macro, policy, regulatory, company, and market signals into explicit, falsifiable capital decisions.
 
-## Purpose
+## What is implemented
 
-The system is designed to answer one practical question:
-
-> What should be done with capital now, what evidence would justify adding, and what would invalidate the thesis?
-
-Research that does not change a decision is archived as context rather than promoted as a signal.
+- Exact 25-source operating system with master router
+- Domain routing across power, data centers, nuclear, cooling, compute, networking, robotics, defense, and materials
+- Evidence hierarchy, contradiction testing, No Repeat Rule, and 10% Conviction Rule
+- 0–100 Atlas Conviction and Stealth Compounder scoring
+- Daily, deep, weekly, and monthly run modes
+- Decision Journal, Kill List, action-report, What Changed, and rebuild templates
+- Codex run-packet generator and source-integrity tests
 
 ## Directory map
 
@@ -17,49 +19,66 @@ atlas/
 ├── AGENTS.md
 ├── README.md
 ├── config/
+│   ├── modules.json
 │   └── scoring.yaml
 ├── prompts/
 │   └── project-atlas-system.md
-└── templates/
-    ├── action-report.md
-    ├── decision-journal.md
-    └── kill-list.md
+├── scripts/
+│   ├── build_run_packet.py
+│   └── validate_atlas.py
+├── sources/
+│   └── 00...24 (exactly 25 permanent sources)
+├── state/
+│   └── README.md
+├── templates/
+│   ├── action-report.md
+│   ├── decision-journal.md
+│   ├── deep-rebuild.md
+│   ├── kill-list.md
+│   └── what-changed.md
+└── tests/
+    └── test_atlas_sources.py
 ```
 
-## Codex usage
+## Use in Codex
 
-Open this repository in Codex and work inside the `atlas/` directory. Codex will use the scoped `AGENTS.md` instructions.
+Open the repository in Codex and work inside `atlas/`. Codex automatically inherits `atlas/AGENTS.md`.
 
-Example task:
+Daily material-change run:
 
 ```text
-Run Project Atlas on BTC and the Treasury-backed stablecoin thesis. Use current primary sources. Produce an action report, update the Decision Journal and Kill List, and end with one verdict and position stage.
+Run Atlas on the current watchlist. Use fresh primary sources, route findings through the relevant domains, enforce the No Repeat and 10% Conviction rules, update decision state only when material, and use templates/what-changed.md.
 ```
 
-Company example:
+Deep weekend rebuild:
 
 ```text
-Run Project Atlas on TICKER. Trace the signal cascade from policy/capex to bottleneck, orders, revenue, estimate revisions, and market recognition. Use scoring.yaml and action-report.md. Do not recommend action without valuation and kill conditions.
+Perform a Deep Atlas rebuild. Load all 25 sources, re-score every active thesis, attack each thesis, update the Decision Journal and Kill List, and use templates/deep-rebuild.md.
 ```
 
-## Decision workflow
+Company action report:
 
-1. **Research:** collect primary evidence and label facts versus inference.
-2. **Score:** complete Atlas and Fiscal Transmission scorecards.
-3. **Decide:** issue exactly one verdict.
-4. **Stage:** assign position stage 0–5.
-5. **Journal:** record the decision, assumptions, deadline, and next validation event.
-6. **Monitor:** update only when new evidence changes expected value.
-7. **Kill or advance:** move the thesis to the Kill List or the next position stage.
+```text
+Run Project Atlas on TICKER. Use current primary sources, config/scoring.yaml, and templates/action-report.md. End with one verdict and a position stage.
+```
 
-## Verdict meanings
+## Build a run packet
 
-- `BUY` — evidence, valuation, and risk support full intended exposure within the correct capital bucket.
-- `STARTER` — asymmetric thesis is credible but incomplete; use limited initial exposure with staged-add triggers.
-- `WATCH` — potentially attractive, but price, evidence, timing, or risk does not support ownership yet.
-- `AVOID` — expected value is unfavorable or the narrative is not supported by evidence.
-- `REDUCE` — thesis, valuation, or risk has deteriorated relative to the current position.
+```bash
+python atlas/scripts/build_run_packet.py --mode deep --query "Rebuild the AI infrastructure watchlist" --output /tmp/atlas-run.md
+```
 
-## Safety and discipline
+For a routed daily run:
 
-Atlas does not execute trades. It produces research and decision architecture for human review. Position sizing must account for liquidity needs, taxes, concentration, drawdown tolerance, and the possibility that a correct thesis can take longer than expected.
+```bash
+python atlas/scripts/build_run_packet.py --mode daily --domains power_grid_utility,data_centers_land_permitting_water --query "What changed today?"
+```
+
+## Validate
+
+```bash
+python atlas/scripts/validate_atlas.py
+python -m unittest discover -s atlas/tests -v
+```
+
+Atlas does not execute trades. It structures evidence, expected value, timing, and risk for human review.

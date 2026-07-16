@@ -1,0 +1,25 @@
+PROJECT ATLAS — DECISION STATE
+
+PURPOSE
+This is the living state contract for the Decision Journal, Kill List, and Watchlists. Actual company entries may be maintained in the project conversation or refreshed working file.
+
+DECISION JOURNAL ENTRY
+Date; Company/Theme; Action (Add/Promote/Demote/Hold/Remove); Prior and New Conviction; Evidence received; Which assumption changed; Expected catalyst; Invalidation; Time horizon; Lessons. Never rewrite history—append changes.
+
+KILL LIST
+Remove or reject when: thesis is falsified; financing cannot bridge to catalyst; recurring dilution destroys per-share upside; governance is unacceptable; customer/contract evidence fails; bottleneck becomes commoditized; management repeatedly misses controllable milestones; fraud/promotion risk; opportunity cost dominates. Record explicit reason and re-entry condition.
+
+WATCHLIST STATES
+Core: highest-quality validated ideas. Emerging: strong causal thesis, incomplete validation. Observation: interesting signal, weak evidence. Speculative: asymmetric but high failure risk. Kill List: rejected pending explicit re-entry evidence.
+
+PROMOTION RULE
+Requires stronger evidence, improved downside protection, or catalyst de-risking—not merely price appreciation. Demotion occurs when evidence quality falls, dilution rises, catalyst slips, or substitutes emerge.
+
+GLOBAL ATLAS RULES
+- Evidence first: distinguish fact, inference, estimate, and hypothesis.
+- Primary sources outrank secondary reporting; later evidence supersedes stale evidence.
+- No Repeat Rule: report only material change; otherwise state “No material change.”
+- 10% Conviction Rule: alerts normally require an expected score or thesis change of about 10%, a new bottleneck, a thesis break, or a near-term value-changing catalyst.
+- Contradiction requirement: actively search for evidence that would falsify the favored thesis.
+- Never invent unknown values. Mark Unknown, Unverified, or Estimate and identify the next validation event.
+- Dynamic facts such as prices, filings, contracts, officeholders, laws, schedules, and market conditions must be verified live at run time.

@@ -1,0 +1,25 @@
+PROJECT ATLAS — SCORING AND CONVICTION ENGINE
+
+CORE SCORES (0–100 unless noted)
+Validator: quality, independence, and directness of proof. CEO Value: capital allocation and shareholder value creation. Founder Mode: ownership, urgency, product depth, and long-term alignment. Bottleneck: importance and difficulty of substitution. Power: access to generation, grid capacity, interconnection, or energy economics. Scarcity: limited qualified supply, time-to-replicate, and regulatory barriers. Re-rating: distance between current market perception and plausible validated state. Government Tailwind: durable policy, funding, procurement, or regulatory support. Inflection Catalyst: probability, proximity, and magnitude of a value-changing event. Market Blindness: degree of neglect or misunderstanding.
+
+RISK SCORES
+Dilution Risk and Execution Risk use 0–100 where higher is worse. Also assess financing, customer concentration, technology, regulatory, commodity, and governance risk.
+
+ATLAS CONVICTION SCORE
+Default weights: Validator 15%; Bottleneck 12%; Scarcity 10%; Re-rating 12%; Inflection Catalyst 12%; AI/strategic infrastructure exposure 8%; CEO Value 8%; Founder Mode 4%; Government Tailwind 6%; Market Blindness 6%; Power relevance 7%. Subtract penalties: Dilution Risk up to 8 points, Execution Risk up to 8, thesis fragility up to 5. Weights may shift by domain but changes must be disclosed.
+
+CONFIDENCE BANDS
+90–100 Exceptional, evidence-rich and asymmetric. 80–89 High conviction. 70–79 Promising but requires validation. 60–69 Watch. Below 60 insufficient or impaired. Score and evidence confidence are separate; never disguise low evidence with precise numbers.
+
+MATERIAL CHANGE
+Update only when new evidence changes a core score by ≥10 points, shifts Atlas Conviction by ≥5 points, creates/removes a bottleneck, materially changes downside, or advances/breaks a catalyst.
+
+GLOBAL ATLAS RULES
+- Evidence first: distinguish fact, inference, estimate, and hypothesis.
+- Primary sources outrank secondary reporting; later evidence supersedes stale evidence.
+- No Repeat Rule: report only material change; otherwise state “No material change.”
+- 10% Conviction Rule: alerts normally require an expected score or thesis change of about 10%, a new bottleneck, a thesis break, or a near-term value-changing catalyst.
+- Contradiction requirement: actively search for evidence that would falsify the favored thesis.
+- Never invent unknown values. Mark Unknown, Unverified, or Estimate and identify the next validation event.
+- Dynamic facts such as prices, filings, contracts, officeholders, laws, schedules, and market conditions must be verified live at run time.

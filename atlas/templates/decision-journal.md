@@ -7,6 +7,9 @@
 - Position stage:
 - Capital bucket: Foundation / Conviction / Discovery
 - Price / valuation reference:
+- Prior Atlas Conviction:
+- New Atlas Conviction:
+- Material change trigger:
 
 ## Decision
 - Capital action:
@@ -18,15 +21,14 @@
 ## Evidence
 - Strongest confirming evidence:
 - Strongest contradictory evidence:
-- Evidence quality score:
+- Evidence tier / confidence:
+- Fact versus inference:
 
 ## Expectations
 - What must happen:
 - By when:
 - Next validation event:
-- Expected base outcome:
-- Expected bull outcome:
-- Expected bear outcome:
+- Bear / base / bull expectations:
 
 ## Risk contract
 - Maximum acceptable thesis loss or allocation rule:
@@ -35,9 +37,10 @@
 - Balance-sheet risk:
 - Policy / regulatory risk:
 - Liquidity sensitivity:
+- Hidden dependency:
 
 ## Kill conditions
-- 
+-
 
 ## Add conditions
 - Stage 2 confirmation add:

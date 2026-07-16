@@ -1,0 +1,25 @@
+PROJECT ATLAS — ELECTRIFICATION, MATERIALS, AND INDUSTRIAL INFRASTRUCTURE
+
+DOMAINS
+Copper/aluminum conductors, electrical steel, magnets, power semiconductors, batteries/storage, transformers, switchgear, cables, industrial gases, specialty chemicals, cement/steel, construction equipment, and engineering services.
+
+THESIS METHOD
+Trace physical intensity per unit of buildout, capacity additions, qualification, geographic concentration, recycling/substitution, and price pass-through. Avoid simplistic “demand up = stock up” logic.
+
+BOTTLENECKS
+Mine/permitting timelines, refining, specialty grades, qualified manufacturing, grid equipment, skilled trades, logistics, and environmental constraints.
+
+VALIDATION
+Order books, utilization, lead times, contracts, pricing, capacity expansions, permitting, customer qualification, and cash returns on new capacity.
+
+RISK
+Commodity cycles, China exposure, substitution, overcapacity, cost inflation, project delays, and capex overruns. Prefer companies with differentiated processing, qualification, or installed service networks over pure price takers.
+
+GLOBAL ATLAS RULES
+- Evidence first: distinguish fact, inference, estimate, and hypothesis.
+- Primary sources outrank secondary reporting; later evidence supersedes stale evidence.
+- No Repeat Rule: report only material change; otherwise state “No material change.”
+- 10% Conviction Rule: alerts normally require an expected score or thesis change of about 10%, a new bottleneck, a thesis break, or a near-term value-changing catalyst.
+- Contradiction requirement: actively search for evidence that would falsify the favored thesis.
+- Never invent unknown values. Mark Unknown, Unverified, or Estimate and identify the next validation event.
+- Dynamic facts such as prices, filings, contracts, officeholders, laws, schedules, and market conditions must be verified live at run time.

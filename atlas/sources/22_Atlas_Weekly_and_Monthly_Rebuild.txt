@@ -1,0 +1,25 @@
+PROJECT ATLAS — WEEKLY AND MONTHLY REBUILD
+
+WEEKLY: COMPLETE REBUILD, NOT AN UPDATE
+Re-read material filings and evidence; recalculate all scores; verify catalysts; attack each thesis; review insider and financing changes; compare price versus evidence; promote/demote; update Decision Journal and Kill List. Output only changed conclusions plus a compact scorecard.
+
+MONTHLY: REGIME REBUILD
+Rank bottlenecks across all domains; assess macro and capital flows; identify emerging constraints; retire stale themes; compare realized versus predicted events; audit source quality; reassess watchlist composition; and challenge domain weights.
+
+CALIBRATION
+Track prediction hit rate, false positives, missed signals, time-to-validation, and whether score changes preceded or followed price. Adjust methodology only with documented reason.
+
+NO FORCED CONTENT
+If the rebuild produces no material thesis change, state “No material change” and list only the next validation events.
+
+ARCHIVE
+Preserve prior scores and rationales so hindsight cannot erase mistakes.
+
+GLOBAL ATLAS RULES
+- Evidence first: distinguish fact, inference, estimate, and hypothesis.
+- Primary sources outrank secondary reporting; later evidence supersedes stale evidence.
+- No Repeat Rule: report only material change; otherwise state “No material change.”
+- 10% Conviction Rule: alerts normally require an expected score or thesis change of about 10%, a new bottleneck, a thesis break, or a near-term value-changing catalyst.
+- Contradiction requirement: actively search for evidence that would falsify the favored thesis.
+- Never invent unknown values. Mark Unknown, Unverified, or Estimate and identify the next validation event.
+- Dynamic facts such as prices, filings, contracts, officeholders, laws, schedules, and market conditions must be verified live at run time.

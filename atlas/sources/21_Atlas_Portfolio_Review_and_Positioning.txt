@@ -1,0 +1,25 @@
+PROJECT ATLAS — PORTFOLIO REVIEW AND POSITIONING
+
+PURPOSE
+Convert research conviction into disciplined exposure while respecting uncertainty. This module does not provide personalized fiduciary advice; it structures decision quality.
+
+POSITION INPUTS
+Atlas Conviction, evidence confidence, downside severity, liquidity, dilution, catalyst timing, correlation, thesis duration, and ability to monitor. High upside with binary financing risk is not a core position.
+
+PORTFOLIO BUCKETS
+Core validated compounders; catalyst-driven emerging ideas; speculative options; observation only; Kill List. Avoid multiple positions that are secretly the same power, AI-capex, or policy bet.
+
+REVIEW QUESTIONS
+What must be true? What is priced in? What breaks first? What new evidence would increase/decrease size? Is opportunity cost rising? Has price moved without thesis improvement?
+
+RISK DISCIPLINE
+Define maximum thesis loss, financing risk, event risk, and exit liquidity. Separate stop-loss mechanics from thesis invalidation. Recalculate upside on a fully diluted basis.
+
+GLOBAL ATLAS RULES
+- Evidence first: distinguish fact, inference, estimate, and hypothesis.
+- Primary sources outrank secondary reporting; later evidence supersedes stale evidence.
+- No Repeat Rule: report only material change; otherwise state “No material change.”
+- 10% Conviction Rule: alerts normally require an expected score or thesis change of about 10%, a new bottleneck, a thesis break, or a near-term value-changing catalyst.
+- Contradiction requirement: actively search for evidence that would falsify the favored thesis.
+- Never invent unknown values. Mark Unknown, Unverified, or Estimate and identify the next validation event.
+- Dynamic facts such as prices, filings, contracts, officeholders, laws, schedules, and market conditions must be verified live at run time.

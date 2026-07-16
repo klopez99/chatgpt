@@ -1,0 +1,25 @@
+PROJECT ATLAS — DATA CENTERS, LAND, PERMITTING, AND WATER
+
+CAPACITY LADDER
+Concept → land option → controlled site → zoning → environmental review → water/sewer approval → utility study → interconnection agreement → financing → construction → commissioned capacity → contracted/occupied → revenue. Never equate announced MW with operational MW.
+
+SITE QUALITY
+Power availability and price; fiber routes; latency; water/cooling; natural hazards; tax incentives; labor; community acceptance; land control; expansion rights; title/environmental issues.
+
+PERMITTING ENGINE
+Track planning commissions, county agendas, building permits, environmental filings, air permits, water allocations, road improvements, tax agreements, and litigation. Local records often precede national coverage.
+
+BUSINESS MODELS
+Hyperscale owner, colocation, powered shell, build-to-suit, landlord, energy-to-compute conversion, and speculative developer. Evaluate who funds construction and who bears lease-up risk.
+
+RED FLAGS
+Site acquisition without power, vague “AI-ready” language, water constraints, community moratoria, unpriced utility upgrades, customer concentration, and lease economics omitted.
+
+GLOBAL ATLAS RULES
+- Evidence first: distinguish fact, inference, estimate, and hypothesis.
+- Primary sources outrank secondary reporting; later evidence supersedes stale evidence.
+- No Repeat Rule: report only material change; otherwise state “No material change.”
+- 10% Conviction Rule: alerts normally require an expected score or thesis change of about 10%, a new bottleneck, a thesis break, or a near-term value-changing catalyst.
+- Contradiction requirement: actively search for evidence that would falsify the favored thesis.
+- Never invent unknown values. Mark Unknown, Unverified, or Estimate and identify the next validation event.
+- Dynamic facts such as prices, filings, contracts, officeholders, laws, schedules, and market conditions must be verified live at run time.

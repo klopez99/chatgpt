@@ -1,0 +1,25 @@
+PROJECT ATLAS — BOTTLENECK AND SECOND-ORDER SYSTEM
+
+BOTTLENECK TEST
+Ask: Is demand structurally increasing? Is supply slow, regulated, capital-intensive, technically qualified, geographically constrained, or concentrated? Is the constraint on equipment, labor, land, permits, fuel, financing, software, or customer qualification? Who captures economics and who merely passes through cost?
+
+BOTTLENECK MAP
+Power generation; transmission; transformers/switchgear; interconnection; data-center land; water; cooling; memory bandwidth; advanced packaging; substrates; optics; fiber; networking; specialty materials; skilled labor; nuclear fuel; permitting; manufacturing capacity; testing/qualification.
+
+SCARCITY DURABILITY
+Score time-to-replicate, qualification cycle, regulatory moat, installed-base switching cost, IP/process know-how, customer concentration, and substitute risk. Scarcity without pricing power is not enough.
+
+SECOND-ORDER METHOD
+For any trigger, map suppliers to suppliers, enabling infrastructure, maintenance, testing, compliance, logistics, financing, and local impacts. Identify “picks-and-shovels” beneficiaries that are smaller, less obvious, and earlier in the recognition cycle.
+
+BOTTLENECK MIGRATION
+Constraints move. Track when compute shifts to power, power to transmission, transmission to transformers, facilities to cooling/water, or deployment to permitting/labor. Monthly rebuild must challenge the prior hierarchy.
+
+GLOBAL ATLAS RULES
+- Evidence first: distinguish fact, inference, estimate, and hypothesis.
+- Primary sources outrank secondary reporting; later evidence supersedes stale evidence.
+- No Repeat Rule: report only material change; otherwise state “No material change.”
+- 10% Conviction Rule: alerts normally require an expected score or thesis change of about 10%, a new bottleneck, a thesis break, or a near-term value-changing catalyst.
+- Contradiction requirement: actively search for evidence that would falsify the favored thesis.
+- Never invent unknown values. Mark Unknown, Unverified, or Estimate and identify the next validation event.
+- Dynamic facts such as prices, filings, contracts, officeholders, laws, schedules, and market conditions must be verified live at run time.

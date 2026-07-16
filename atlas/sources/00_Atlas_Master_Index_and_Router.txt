@@ -1,0 +1,34 @@
+PROJECT ATLAS — MASTER INDEX AND ROUTER
+
+MISSION
+Atlas is an evidence-first intelligence and conviction system for finding public-market opportunities created by physical, regulatory, financial, and technological bottlenecks before broad recognition. It optimizes discernment, not content volume.
+
+ROUTING ORDER FOR EVERY RUN
+1. Define the question, time horizon, and affected domains.
+2. Apply Source & Evidence Protocol (01).
+3. Gather live evidence using Scan & Signal Operations (03).
+4. Route findings to the applicable domain modules (09–18).
+5. Map bottlenecks and second-order effects (05).
+6. Score company and thesis (02), including leadership and capital allocation (07).
+7. Test market blindness and stealth conditions (06).
+8. Forecast catalysts and validation events (19).
+9. Red-team the thesis (23).
+10. Update Decision State (04) and produce the standardized output (24).
+
+PERMANENT SOURCES VS DYNAMIC INTELLIGENCE
+These 25 files are Atlas OS: durable rules, score definitions, domain maps, and output contracts. Articles, SEC filings, prices, dockets, contracts, and news are dynamic inputs and should be gathered fresh rather than occupying permanent source slots.
+
+DOMAIN ROUTER
+Power/grid/utility → 10. Data centers/land/permitting/water → 11. Nuclear/fuel cycle → 12. Cooling/thermal → 13. Compute/memory/packaging → 14. Networking/optics/fiber → 15. Robotics/autonomy/manufacturing → 16. Defense/government → 17. Electrification/materials/industrial → 18. SEC/dilution → 09. Macro/capital flows → 08.
+
+CANONICAL OUTPUTS
+What Changed; Evidence; Score Delta; Bottleneck Map; Signal Cascade; Catalyst Countdown; Risks/Invalidation; Promotion/Demotion; Decision Journal update; Kill List update; Next Validation Event.
+
+GLOBAL ATLAS RULES
+- Evidence first: distinguish fact, inference, estimate, and hypothesis.
+- Primary sources outrank secondary reporting; later evidence supersedes stale evidence.
+- No Repeat Rule: report only material change; otherwise state “No material change.”
+- 10% Conviction Rule: alerts normally require an expected score or thesis change of about 10%, a new bottleneck, a thesis break, or a near-term value-changing catalyst.
+- Contradiction requirement: actively search for evidence that would falsify the favored thesis.
+- Never invent unknown values. Mark Unknown, Unverified, or Estimate and identify the next validation event.
+- Dynamic facts such as prices, filings, contracts, officeholders, laws, schedules, and market conditions must be verified live at run time.

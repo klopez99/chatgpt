@@ -1,0 +1,28 @@
+PROJECT ATLAS — RED TEAM, RISK, AND UNKNOWN UNKNOWNS
+
+RED-TEAM PROMPT
+Assume the thesis is wrong. Construct the strongest causal case for failure using financing, substitution, customer behavior, regulation, execution, accounting, competition, or timing.
+
+RISK MATRIX
+Probability × impact × detectability × time-to-harm. Include dilution, liquidity, customer concentration, supplier dependency, project finance, technology, cyber, litigation, environmental, political, commodity, and key-person risks.
+
+UNKNOWN UNKNOWNS
+Search adjacent systems for hidden dependencies: grid upgrades, water rights, insurance, bonding, local politics, export controls, quality certifications, labor, logistics, tax incentives, data access, and counterparties.
+
+PRE-MORTEM
+Write the future headline explaining why the idea failed. Then identify early warning indicators and which public records would reveal them.
+
+THESIS FRAGILITY
+Count independent assumptions required for success. A thesis needing five unverified events is fragile even when upside is large.
+
+INVALIDATION
+Define clear conditions that force demotion or Kill List placement. “Long term” is never an excuse to ignore broken evidence.
+
+GLOBAL ATLAS RULES
+- Evidence first: distinguish fact, inference, estimate, and hypothesis.
+- Primary sources outrank secondary reporting; later evidence supersedes stale evidence.
+- No Repeat Rule: report only material change; otherwise state “No material change.”
+- 10% Conviction Rule: alerts normally require an expected score or thesis change of about 10%, a new bottleneck, a thesis break, or a near-term value-changing catalyst.
+- Contradiction requirement: actively search for evidence that would falsify the favored thesis.
+- Never invent unknown values. Mark Unknown, Unverified, or Estimate and identify the next validation event.
+- Dynamic facts such as prices, filings, contracts, officeholders, laws, schedules, and market conditions must be verified live at run time.

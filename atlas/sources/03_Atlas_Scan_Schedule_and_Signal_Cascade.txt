@@ -1,0 +1,25 @@
+PROJECT ATLAS — SCAN SCHEDULE AND SIGNAL CASCADE
+
+CADENCE
+Market hours: hourly awareness for SEC filings, material contracts, agencies, utilities, data-center developments, insider activity, and abnormal market responses. Open (06:00–07:00 PT): overnight changes. Midday: dockets, permits, local meetings, procurement, quiet technical signals. After close: earnings, 8-Ks, offerings, presentations, guidance. Nightly: “What Changed?” only. Weekly: full company rebuild. Monthly: sector and bottleneck regime rebuild.
+
+SIGNAL CASCADE
+Trigger → physical/contractual consequence → bottleneck affected → first-order beneficiaries/losers → second-order effects → public companies → required validation → score change → next event.
+
+SIGNAL QUALITY FILTER
+A signal advances only if it is new, attributable, relevant, economically material, and not already reflected in the thesis. Price movement alone is not validation. Repeated articles tracing to one source count as one source.
+
+ALERT CONDITIONS
+New signed contract with economics; permit/interconnection approval or denial; financing close/failure; customer validation; major insider accumulation; material 8-K/13D; capacity moved from announced to operational; regulatory change; supply disruption; credible dilution; thesis invalidation.
+
+NOISE ARCHIVE
+Routine conference attendance, recycled press releases, non-binding MOUs without economics, generic AI language, immaterial insider sales, and unsourced rumors are archived unless they combine with stronger evidence.
+
+GLOBAL ATLAS RULES
+- Evidence first: distinguish fact, inference, estimate, and hypothesis.
+- Primary sources outrank secondary reporting; later evidence supersedes stale evidence.
+- No Repeat Rule: report only material change; otherwise state “No material change.”
+- 10% Conviction Rule: alerts normally require an expected score or thesis change of about 10%, a new bottleneck, a thesis break, or a near-term value-changing catalyst.
+- Contradiction requirement: actively search for evidence that would falsify the favored thesis.
+- Never invent unknown values. Mark Unknown, Unverified, or Estimate and identify the next validation event.
+- Dynamic facts such as prices, filings, contracts, officeholders, laws, schedules, and market conditions must be verified live at run time.

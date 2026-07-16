@@ -1,0 +1,28 @@
+PROJECT ATLAS — COOLING, THERMAL, AND WATER
+
+SYSTEM MAP
+Chip/package thermal interface → cold plate/immersion → coolant distribution → pumps/heat exchangers → chillers/dry coolers/cooling towers → facility controls → water treatment/reuse.
+
+DRIVERS
+Rack density, accelerator power, climate, water availability, facility retrofit constraints, energy efficiency, uptime, and customer qualification.
+
+BOTTLENECKS
+Qualified liquid-cooling components, leak-free manifolds, pumps, heat exchangers, controls, installation labor, refrigerants, and local water/air permits.
+
+VALIDATION
+Named customer qualification, production capacity, backlog, design wins, deployment at scale, warranty/reliability data, and margin economics. A prototype is not a scaled solution.
+
+SECOND-ORDER EFFECTS
+Water treatment, industrial pumps, heat reuse, thermal materials, facility engineering, sensors, and maintenance.
+
+RISK
+Rapid standard changes, hyperscaler insourcing, commoditization, warranty liabilities, and capacity expansion ahead of demand.
+
+GLOBAL ATLAS RULES
+- Evidence first: distinguish fact, inference, estimate, and hypothesis.
+- Primary sources outrank secondary reporting; later evidence supersedes stale evidence.
+- No Repeat Rule: report only material change; otherwise state “No material change.”
+- 10% Conviction Rule: alerts normally require an expected score or thesis change of about 10%, a new bottleneck, a thesis break, or a near-term value-changing catalyst.
+- Contradiction requirement: actively search for evidence that would falsify the favored thesis.
+- Never invent unknown values. Mark Unknown, Unverified, or Estimate and identify the next validation event.
+- Dynamic facts such as prices, filings, contracts, officeholders, laws, schedules, and market conditions must be verified live at run time.

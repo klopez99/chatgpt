@@ -1,4 +1,5 @@
-version: 1
+version: 2
+scale: 0-100
 
 verdicts:
   - BUY
@@ -16,26 +17,32 @@ position_stages:
   5: harvest_or_reduce
 
 atlas_weights:
-  validator_score: 0.08
-  ceo_value_score: 0.05
+  validator_score: 0.15
+  bottleneck_score: 0.12
+  scarcity_score: 0.10
+  rerating_score: 0.12
+  inflection_catalyst_score: 0.12
+  ai_strategic_infrastructure_exposure_score: 0.08
+  ceo_value_score: 0.08
   ceo_founder_mode_score: 0.04
-  bottleneck_score: 0.10
-  power_score: 0.05
-  scarcity_score: 0.08
-  rerating_score: 0.10
-  government_tailwind_score: 0.07
-  ai_infrastructure_exposure: 0.08
-  inflection_catalyst_score: 0.10
-  market_blindness_score: 0.10
-  fiscal_transmission_score: 0.10
-  evidence_quality_score: 0.05
+  government_tailwind_score: 0.06
+  market_blindness_score: 0.06
+  power_relevance_score: 0.07
 
-risk_penalties:
-  dilution_risk: 0.10
-  execution_risk: 0.10
-  balance_sheet_risk: 0.08
-  policy_reversal_risk: 0.06
-  valuation_risk: 0.08
+risk_penalties_max_points:
+  dilution_risk: 8
+  execution_risk: 8
+  thesis_fragility: 5
+
+stealth_score_weights:
+  ai_strategic_infrastructure_exposure: 0.20
+  bottleneck_ownership: 0.20
+  revenue_inflection_potential: 0.15
+  market_blindness: 0.15
+  ceo_execution_capital_allocation: 0.10
+  balance_sheet_strength: 0.10
+  asset_scarcity: 0.05
+  government_tailwinds: 0.05
 
 fiscal_transmission_weights:
   productivity_contribution: 0.16
@@ -47,35 +54,57 @@ fiscal_transmission_weights:
   fiscal_dominance_benefit: 0.12
   deflationary_end_state: 0.14
 
+confidence_bands:
+  exceptional: [90, 100]
+  high_conviction: [80, 89]
+  promising_requires_validation: [70, 79]
+  watch: [60, 69]
+  insufficient_or_impaired: [0, 59]
+
+material_change:
+  core_score_delta_points: 10
+  conviction_delta_points: 5
+  alert_conviction_change_percent: 10
+  also_trigger_on:
+    - bottleneck_created_or_removed
+    - downside_materially_changed
+    - catalyst_advanced_or_broken
+    - thesis_invalidated
+
 verdict_thresholds:
   BUY:
-    minimum_adjusted_score: 8.2
-    minimum_evidence_quality: 7.5
-    maximum_total_risk: 4.5
+    minimum_adjusted_score: 82
+    minimum_evidence_quality: 75
+    maximum_aggregate_risk: 45
   STARTER:
-    minimum_adjusted_score: 7.2
-    minimum_evidence_quality: 6.5
-    maximum_total_risk: 6.0
+    minimum_adjusted_score: 72
+    minimum_evidence_quality: 65
+    maximum_aggregate_risk: 60
   WATCH:
-    minimum_adjusted_score: 5.5
+    minimum_adjusted_score: 55
   AVOID:
-    maximum_adjusted_score: 5.4
+    maximum_adjusted_score: 54
   REDUCE:
-    thesis_deterioration: true
+    thesis_or_valuation_deterioration: true
 
 required_fields:
+  - atlas_verdict
+  - what_changed
   - structural_change
   - market_misunderstanding
   - beneficiary_mechanism
-  - evidence
-  - scores
+  - evidence_ledger
+  - signal_cascade
+  - scorecard
   - valuation_condition
   - position_stage
+  - bear_case
   - base_case
   - bull_case
-  - bear_case
   - catalyst_timeline
   - confirmation_signals
   - kill_conditions
   - next_validation_event
+  - decision_journal_update
+  - kill_list_update
   - final_verdict

@@ -1,0 +1,28 @@
+PROJECT ATLAS — ROBOTICS, AUTONOMY, AND ADVANCED MANUFACTURING
+
+STACK
+Sensors/vision → compute/control → actuators/motors/drives → gears/bearings → end effectors → safety → software/data → integration → service.
+
+ADOPTION TEST
+The system must solve a costly, repetitive, dangerous, or labor-constrained task with measurable payback. Track paid pilots, fleet expansion, utilization, uptime, and customer ROI—not demo quality.
+
+BOTTLENECKS
+Precision actuators, reducers, force/torque sensors, power electronics, rare-earth magnets, safety certification, integration labor, and data.
+
+AUTONOMY
+Separate technical capability, regulatory permission, insurance/liability, operating design domain, and unit economics. A successful demo is not scalable deployment.
+
+MANUFACTURING EFFECTS
+Reshoring, machine tools, metrology, industrial software, contract manufacturing, and factory power/automation.
+
+RISK
+Long sales cycles, customization, low gross margins, safety incidents, customer capex freezes, and component commoditization.
+
+GLOBAL ATLAS RULES
+- Evidence first: distinguish fact, inference, estimate, and hypothesis.
+- Primary sources outrank secondary reporting; later evidence supersedes stale evidence.
+- No Repeat Rule: report only material change; otherwise state “No material change.”
+- 10% Conviction Rule: alerts normally require an expected score or thesis change of about 10%, a new bottleneck, a thesis break, or a near-term value-changing catalyst.
+- Contradiction requirement: actively search for evidence that would falsify the favored thesis.
+- Never invent unknown values. Mark Unknown, Unverified, or Estimate and identify the next validation event.
+- Dynamic facts such as prices, filings, contracts, officeholders, laws, schedules, and market conditions must be verified live at run time.

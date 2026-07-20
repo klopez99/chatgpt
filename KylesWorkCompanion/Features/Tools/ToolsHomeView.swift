@@ -1,0 +1,2 @@
+import SwiftUI
+struct ToolsHomeView: View { @State private var frequency = "2w3, then 1w3, then 0w1, 4 PRN"; var body: some View { Form { Section("Frequency calculator") { TextField("Frequency", text: $frequency); Text("Scheduled visit total: \(FrequencyCalculator.scheduledTotal(frequency))"); Text("PRN visit total: \(FrequencyCalculator.prnTotal(frequency))") }; Section("Privacy notice") { Text("No analytics, advertising SDK, third-party crash reporting, cloud AI, or external patient-data APIs are included.") } }.navigationTitle("Tools") } }

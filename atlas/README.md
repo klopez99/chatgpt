@@ -11,12 +11,14 @@ Project Atlas converts macro, policy, regulatory, company, and market signals in
 - Daily, deep, weekly, and monthly run modes
 - Decision Journal, Kill List, action-report, What Changed, and rebuild templates
 - Codex run-packet generator and source-integrity tests
+- GitHub ↔ ChatGPT integration contract with reviewable state write-back
 
 ## Directory map
 
 ```text
 atlas/
 ├── AGENTS.md
+├── CHATGPT_INTEGRATION.md
 ├── README.md
 ├── config/
 │   ├── modules.json
@@ -61,6 +63,22 @@ Company action report:
 ```text
 Run Project Atlas on TICKER. Use current primary sources, config/scoring.yaml, and templates/action-report.md. End with one verdict and a position stage.
 ```
+
+## Use in ChatGPT with GitHub
+
+Invoke the connected GitHub app and identify this repository as `klopez99/chatgpt`.
+
+```text
+@GitHub Run Atlas from klopez99/chatgpt on TICKER. Use the canonical files under atlas/, verify dynamic facts live, and return the required Atlas verdict, stage, catalyst window, confirmation signals, kill conditions, and next validation event.
+```
+
+For a full rebuild:
+
+```text
+@GitHub Perform a Deep Atlas rebuild from klopez99/chatgpt. Load all 25 canonical sources, current decision state, scoring config, and the deep-rebuild template. Verify all dynamic facts live and propose persistent state changes through a draft pull request.
+```
+
+The full authority, boot sequence, command mapping, and state write-back rules are defined in `CHATGPT_INTEGRATION.md`.
 
 ## Build a run packet
 

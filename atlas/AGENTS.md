@@ -2,6 +2,13 @@
 
 Project Atlas is an evidence-first investment intelligence system. Its purpose is to convert verified signals into disciplined capital decisions, not to maximize research volume.
 
+## Repository authority
+
+- The canonical Atlas methodology is the `atlas/` directory on the repository default branch.
+- ChatGPT and Codex should use `CHATGPT_INTEGRATION.md` as the cross-product integration contract.
+- Conversation uploads, pasted text, and local copies are working inputs until synchronized through a reviewed GitHub change.
+- Persistent methodology or decision-state changes should be made on an `agent/<description>` branch and proposed through a draft pull request.
+
 ## Source architecture
 
 - The canonical operating system is exactly 25 permanent source files in `sources/`, numbered `00` through `24`.

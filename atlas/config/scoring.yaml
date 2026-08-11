@@ -1,4 +1,4 @@
-version: 2
+version: 3
 scale: 0-100
 
 verdicts:
@@ -54,6 +54,60 @@ fiscal_transmission_weights:
   fiscal_dominance_benefit: 0.12
   deflationary_end_state: 0.14
 
+# Mandatory Atlas filter: can this company still create attractive per-share value
+# when long-duration U.S. sovereign yields are around 5% rather than near zero?
+sovereign_hurdle_rate_filter:
+  name: 5_percent_hurdle_rate_resilience
+  benchmark_long_rate: 0.05
+  stress_long_rate: 0.06
+  applies_to: all_equities
+  especially_required_for:
+    - capacity_unlockers
+    - ai_infrastructure
+    - data_centers
+    - utilities_and_power
+    - miners_and_commodity_producers
+    - leveraged_growth
+    - capital_intensive_industrials
+  weights:
+    normalized_roic_spread_over_long_rate: 0.25
+    normalized_fcf_yield_spread_over_long_rate: 0.20
+    interest_coverage: 0.15
+    balance_sheet_and_maturity_resilience: 0.15
+    self_funded_capex_capacity: 0.10
+    pricing_power_or_contract_escalators: 0.10
+    refinancing_dependency: 0.05
+  stress_test:
+    base_long_rate: 0.05
+    adverse_long_rate: 0.06
+    require_positive_normalized_fcf: true
+    require_no_forced_equity_raise_in_base_case: true
+    require_base_case_per_share_value_creation: true
+    review_horizon_months: 24
+  gates:
+    PASS:
+      minimum_score: 75
+      target_minimum_normalized_roic_spread_bps: 500
+      target_minimum_interest_coverage_x: 4.0
+      material_unfunded_24m_capital_gap: false
+    WATCH:
+      minimum_score: 55
+    FAIL:
+      maximum_score: 54
+      verdict_cap: WATCH
+  required_output:
+    - current_10y_or_relevant_long_rate
+    - normalized_roic_or_project_irr
+    - normalized_fcf_yield
+    - return_spread_over_long_rate
+    - interest_coverage
+    - net_debt_and_next_24m_maturities
+    - capex_funding_source
+    - pricing_power_or_contract_escalators
+    - five_percent_rate_case
+    - six_percent_rate_stress_case
+    - gate_result
+
 confidence_bands:
   exceptional: [90, 100]
   high_conviction: [80, 89]
@@ -70,16 +124,19 @@ material_change:
     - downside_materially_changed
     - catalyst_advanced_or_broken
     - thesis_invalidated
+    - sovereign_hurdle_rate_gate_changed
 
 verdict_thresholds:
   BUY:
     minimum_adjusted_score: 82
     minimum_evidence_quality: 75
     maximum_aggregate_risk: 45
+    minimum_sovereign_hurdle_rate_gate: PASS
   STARTER:
     minimum_adjusted_score: 72
     minimum_evidence_quality: 65
     maximum_aggregate_risk: 60
+    minimum_sovereign_hurdle_rate_gate: WATCH
   WATCH:
     minimum_adjusted_score: 55
   AVOID:
@@ -96,6 +153,7 @@ required_fields:
   - evidence_ledger
   - signal_cascade
   - scorecard
+  - sovereign_hurdle_rate_filter
   - valuation_condition
   - position_stage
   - bear_case

@@ -50,7 +50,30 @@ Trace capital/policy → bottleneck → order/contract → revenue → cash flow
 - 3–7 year upside mechanism:
 - Primary evidence gap:
 
-## 8. Fiscal Transmission Score (optional where relevant)
+## 8. Sovereign Hurdle-Rate Filter — mandatory
+Test whether the company can create attractive **per-share** value when long-duration U.S. sovereign yields are around 5%, and stress the thesis at 6%. Do not award a BUY if this gate fails.
+
+| Metric | Current / Base | 5% long-rate case | 6% stress case | Evidence / implication |
+|---|---:|---:|---:|---|
+| Relevant long sovereign rate | | 5.0% | 6.0% | |
+| Normalized ROIC or project IRR | | | | |
+| ROIC/IRR spread over long rate | | | | |
+| Normalized FCF yield | | | | |
+| FCF-yield spread over long rate | | | | |
+| Interest coverage | | | | |
+| Net debt / liquidity | | | | |
+| Debt maturities next 24 months | | | | |
+| Capex funding source / self-funding | | | | |
+| Pricing power / contract escalators | | | | |
+| Forced equity-raise risk | | | | |
+| Per-share value creation remains positive? | | | | |
+
+- Hurdle-Rate Resilience Score (0–100):
+- Gate: **PASS / WATCH / FAIL**
+- Key reason:
+- What would change the gate:
+
+## 9. Fiscal Transmission Score (optional where relevant)
 | Component | Score 0–100 | Reason |
 |---|---:|---|
 | Productivity Contribution | | |
@@ -62,10 +85,10 @@ Trace capital/policy → bottleneck → order/contract → revenue → cash flow
 | Fiscal-Dominance Benefit | | |
 | Deflationary End-State | | |
 
-## 9. Signal Cascade
+## 10. Signal Cascade
 Trigger → physical/contractual consequence → bottleneck → beneficiaries → validation → earnings → market recognition.
 
-## 10. Valuation and action
+## 11. Valuation and action
 - Buy zone or valuation condition:
 - Starter trigger:
 - Confirmation trigger:
@@ -74,18 +97,18 @@ Trigger → physical/contractual consequence → bottleneck → beneficiaries �
 - Harvest / reduce trigger:
 - Capital bucket: Foundation / Conviction / Discovery
 
-## 11. Outcomes
+## 12. Outcomes
 | Scenario | Assumptions | Value / return range | Probability | Timeline |
 |---|---|---:|---:|---|
 | Bear | | | | |
 | Base | | | | |
 | Bull | | | | |
 
-## 12. Catalyst timeline
+## 13. Catalyst timeline
 | Window | Event | Required evidence | Expected thesis impact |
 |---|---|---|---|
 
-## 13. Contradictions and risks
+## 14. Contradictions and risks
 - Strongest contradictory evidence:
 - Financing / dilution:
 - Execution:
@@ -94,16 +117,16 @@ Trigger → physical/contractual consequence → bottleneck → beneficiaries �
 - Regulation / policy:
 - Hidden dependency:
 
-## 14. Confirmation signals
+## 15. Confirmation signals
 -
 
-## 15. Kill conditions
+## 16. Kill conditions
 -
 
-## 16. Next validation event
+## 17. Next validation event
 Name the exact filing, permit, contract, earnings release, price/valuation condition, or deadline that triggers review.
 
-## 17. Decision Journal update
+## 18. Decision Journal update
 - Decision:
 - Why now:
 - What must be true:

@@ -9,11 +9,20 @@ Dilution Risk and Execution Risk use 0–100 where higher is worse. Also assess 
 ATLAS CONVICTION SCORE
 Default weights: Validator 15%; Bottleneck 12%; Scarcity 10%; Re-rating 12%; Inflection Catalyst 12%; AI/strategic infrastructure exposure 8%; CEO Value 8%; Founder Mode 4%; Government Tailwind 6%; Market Blindness 6%; Power relevance 7%. Subtract penalties: Dilution Risk up to 8 points, Execution Risk up to 8, thesis fragility up to 5. Weights may shift by domain but changes must be disclosed.
 
+SOVEREIGN HURDLE-RATE RESILIENCE FILTER — MANDATORY
+Atlas must ask whether the company can still create attractive PER-SHARE returns if long-duration U.S. sovereign yields remain around 5%, and must stress the thesis at 6%. This is distinct from generic interest-rate sensitivity: it compares the company's normalized return on incremental capital, free-cash-flow yield, financing structure, and project economics against the return available from long-duration sovereign assets.
+
+Score 0–100 using: normalized ROIC/project IRR spread over the long rate (25%); normalized FCF-yield spread (20%); interest coverage (15%); balance-sheet and maturity resilience (15%); self-funded capex capacity (10%); pricing power/contract escalators (10%); refinancing dependency (5%).
+
+PASS target: score >=75, normalized ROIC/project IRR preferably >=500 bps above the relevant long sovereign rate, interest coverage preferably >=4x, no material unfunded 24-month capital gap, and positive per-share value creation under a 5% base and 6% stress case. WATCH: score 55–74 or incomplete evidence with manageable financing risk. FAIL: score <=54, negative value creation versus the sovereign hurdle, material forced-equity/refinancing dependency, or project economics that require materially lower rates. A FAIL caps the Atlas verdict at WATCH until the financing, valuation, or return profile improves.
+
+For Capacity Unlockers, capital-intensive infrastructure, miners, utilities, data centers, AI infrastructure, and leveraged growth companies, explicitly report: current relevant long rate; normalized ROIC or project IRR; normalized FCF yield; spreads over the sovereign rate; interest coverage; net debt and 24-month maturities; capex funding source; pricing power/contract escalators; forced equity-raise risk; 5% base case; 6% stress case; PASS/WATCH/FAIL gate.
+
 CONFIDENCE BANDS
 90–100 Exceptional, evidence-rich and asymmetric. 80–89 High conviction. 70–79 Promising but requires validation. 60–69 Watch. Below 60 insufficient or impaired. Score and evidence confidence are separate; never disguise low evidence with precise numbers.
 
 MATERIAL CHANGE
-Update only when new evidence changes a core score by ≥10 points, shifts Atlas Conviction by ≥5 points, creates/removes a bottleneck, materially changes downside, or advances/breaks a catalyst.
+Update only when new evidence changes a core score by ≥10 points, shifts Atlas Conviction by ≥5 points, creates/removes a bottleneck, materially changes downside, advances/breaks a catalyst, or changes the Sovereign Hurdle-Rate gate.
 
 GLOBAL ATLAS RULES
 - Evidence first: distinguish fact, inference, estimate, and hypothesis.
@@ -23,3 +32,4 @@ GLOBAL ATLAS RULES
 - Contradiction requirement: actively search for evidence that would falsify the favored thesis.
 - Never invent unknown values. Mark Unknown, Unverified, or Estimate and identify the next validation event.
 - Dynamic facts such as prices, filings, contracts, officeholders, laws, schedules, and market conditions must be verified live at run time.
+- Every BUY must pass the Sovereign Hurdle-Rate Resilience Filter. Every STARTER must at least score WATCH on the filter.

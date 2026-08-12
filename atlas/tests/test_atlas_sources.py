@@ -43,6 +43,23 @@ class AtlasSourceTests(unittest.TestCase):
         values = [float(x) for x in re.findall(r": (0\.\d+)\n", block)]
         self.assertAlmostEqual(1.0, sum(values), places=8)
 
+    def test_labor_to_capital_filter_is_mandatory(self):
+        scoring = (ROOT / "config/scoring.yaml").read_text()
+        source_02 = (ROOT / "sources/02_Atlas_Scoring_and_Conviction_Engine.txt").read_text()
+        output = (ROOT / "sources/24_Atlas_Output_Contract_and_Domain_Registry.txt").read_text()
+        prompt = (ROOT / "prompts/project-atlas-system.md").read_text()
+        self.assertIn("labor_to_capital_transfer_filter:", scoring)
+        self.assertIn("LABOR-TO-CAPITAL TRANSFER FILTER — MANDATORY STRUCTURAL OVERLAY", source_02)
+        self.assertIn("Labor-to-Capital Transfer", output)
+        self.assertIn("Labor-to-Capital Transfer Filter", prompt)
+
+    def test_labor_to_capital_weights_sum_to_one(self):
+        text = (ROOT / "config/scoring.yaml").read_text()
+        block = text.split("labor_to_capital_transfer_filter:\n", 1)[1].split("\nconfidence_bands:", 1)[0]
+        weights = block.split("  weights:\n", 1)[1].split("  gates:\n", 1)[0]
+        values = [float(x) for x in re.findall(r": (0\.\d+)\n", weights)]
+        self.assertAlmostEqual(1.0, sum(values), places=8)
+
     def test_deep_packet_loads_all_sources(self):
         packet = packet_builder.build_packet("deep", "test", [])
         self.assertEqual(25, packet.count("## Source "))

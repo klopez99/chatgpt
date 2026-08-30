@@ -18,11 +18,24 @@ PASS target: score >=75, normalized ROIC/project IRR preferably >=500 bps above 
 
 For Capacity Unlockers, capital-intensive infrastructure, miners, utilities, data centers, AI infrastructure, and leveraged growth companies, explicitly report: current relevant long rate; normalized ROIC or project IRR; normalized FCF yield; spreads over the sovereign rate; interest coverage; net debt and 24-month maturities; capex funding source; pricing power/contract escalators; forced equity-raise risk; 5% base case; 6% stress case; PASS/WATCH/FAIL gate.
 
+LABOR-TO-CAPITAL TRANSFER FILTER — MANDATORY STRUCTURAL OVERLAY
+Atlas must trace what happens to the wage dollar when AI, software, automation, robotics, or process redesign reduces the amount of human labor required to produce the same or greater output. The filter is not a moral judgment about employment and it must not assume that every automation announcement creates shareholder value. Its purpose is to identify where displaced labor spending is actually captured, where it leaks away, and which public company owns the strongest durable claim on the redirected cash flow.
+
+Trace the full dollar path where evidence permits: avoided wages and benefits -> retained corporate margin, AI/software spend, compute/semiconductor/network spend, data-center/power/grid/land/cooling spend, taxes, lower customer prices, capital returns, reinvestment, and redistributed consumer demand. Classify the beneficiary as one or more of: labor-substitution margin captor; AI software/agent toll collector; compute/semiconductor/network enabler; power/grid/energy owner; data-center/land/cooling/physical-infrastructure owner; capital allocator/financial-asset owner; consumer-price-deflation beneficiary; redistribution/demand recycler.
+
+Score 0–100 using: labor-substitution exposure and addressable wage pool (15%); directness of dollar capture (15%); operating leverage and FCF conversion (15%); scarce-input or tollbooth ownership (15%); pricing power and resistance to competitive pass-through (10%); reinvestment runway and per-share capital allocation (10%); evidence of customer ROI and adoption speed (10%); end-demand and redistribution resilience (10%).
+
+STRONG CAPTURE: score >=75 with evidence quality >=70, an identifiable displaced-dollar path, and a credible positive per-share FCF path. This may add up to 5 priority-ranking points but cannot override a failed core risk or sovereign-hurdle gate. PARTIAL CAPTURE: score 55–74; may add up to 2 priority-ranking points when evidence supports a developing transfer mechanism. WEAK OR LEAKAGE: score <=54; no ranking boost. A low score does not automatically make a company uninvestable because the filter is a structural capture overlay, not a universal quality gate.
+
+Anti-double-count rules: do not count the same AI revenue or margin gain in multiple beneficiary modes without separate evidence; separate customer cost savings from supplier revenue capture; separate announced automation from realized headcount or unit-cost change; do not assume cost savings are retained when competition forces price cuts; and analyze per-share value after stock-based compensation, dilution, and financing.
+
+Every company analysis must report: labor pool at risk or automatable cost base; beneficiary mode; displaced-dollar path; direct versus second-order capture; customer ROI/payback evidence; expected margin or FCF conversion; competitive price-pass-through leakage; upstream scarce-input dependency; per-share value capture; end-demand or redistribution risk; score; and STRONG_CAPTURE/PARTIAL_CAPTURE/WEAK_OR_LEAKAGE result.
+
 CONFIDENCE BANDS
 90–100 Exceptional, evidence-rich and asymmetric. 80–89 High conviction. 70–79 Promising but requires validation. 60–69 Watch. Below 60 insufficient or impaired. Score and evidence confidence are separate; never disguise low evidence with precise numbers.
 
 MATERIAL CHANGE
-Update only when new evidence changes a core score by ≥10 points, shifts Atlas Conviction by ≥5 points, creates/removes a bottleneck, materially changes downside, advances/breaks a catalyst, or changes the Sovereign Hurdle-Rate gate.
+Update only when new evidence changes a core score by ≥10 points, shifts Atlas Conviction by ≥5 points, creates/removes a bottleneck, materially changes downside, advances/breaks a catalyst, changes the Sovereign Hurdle-Rate gate, changes the Labor-to-Capital Transfer gate, changes the beneficiary mode, or materially changes the displaced-dollar path.
 
 GLOBAL ATLAS RULES
 - Evidence first: distinguish fact, inference, estimate, and hypothesis.
@@ -33,3 +46,4 @@ GLOBAL ATLAS RULES
 - Never invent unknown values. Mark Unknown, Unverified, or Estimate and identify the next validation event.
 - Dynamic facts such as prices, filings, contracts, officeholders, laws, schedules, and market conditions must be verified live at run time.
 - Every BUY must pass the Sovereign Hurdle-Rate Resilience Filter. Every STARTER must at least score WATCH on the filter.
+- Every asset analysis must apply the Labor-to-Capital Transfer Filter and explicitly identify whether value is retained, transferred upstream, passed to customers, taxed, or recycled into end demand.

@@ -1,5 +1,7 @@
 # Nursing Charting & Kinnser Workflow Toolkit
 
+> **Governance:** Read [OWNER_CONTRACT.md](OWNER_CONTRACT.md) and [AGENTS.md](AGENTS.md) before changing home-health behavior. These files define clinical truth, agent permissions, validation, and deployment gates.
+
 This repository contains a starter blueprint and first local prototype for building an assistant that helps a licensed clinician with home-health nursing charting and daily workflow in WellSky Home Health & Hospice (formerly Kinnser) at `kinnser.net`.
 
 ## Current prototype

@@ -1,0 +1,26 @@
+name: Home health CI
+
+on:
+  pull_request:
+    branches: [main]
+    paths-ignore:
+      - "atlas/**"
+  push:
+    branches: [main]
+    paths-ignore:
+      - "atlas/**"
+
+permissions:
+  contents: read
+
+jobs:
+  verify-home-health:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Run nursing regression tests
+        run: npm test

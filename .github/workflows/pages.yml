@@ -1,11 +1,7 @@
 name: Deploy nursing briefing to GitHub Pages
 
+# Production publishing is an explicit owner action. CI must pass before deployment.
 on:
-  push:
-    branches: [main]
-    paths:
-      - "public/**"
-      - ".github/workflows/pages.yml"
   workflow_dispatch:
 
 permissions:
@@ -18,25 +14,36 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Run nursing regression tests
+        run: npm test
+
   deploy:
+    needs: verify
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v6
-
+        uses: actions/checkout@v4
       - name: Configure Pages
         uses: actions/configure-pages@v5
         with:
           enablement: true
-
       - name: Upload static site
         uses: actions/upload-pages-artifact@v4
         with:
           path: ./public
-
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4

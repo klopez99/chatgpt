@@ -59,12 +59,19 @@ def validate() -> list[str]:
             errors.append(f"router missing required phrase: {phrase}")
 
     output = (SOURCES / "24_Atlas_Output_Contract_and_Domain_Registry.txt").read_text(encoding="utf-8")
-    for phrase in ["STANDARD RUN OUTPUT", "RUN ATLAS", "Deep rebuild"]:
+    for phrase in ["STANDARD RUN OUTPUT", "RUN ATLAS", "Deep rebuild", "Labor-to-Capital Transfer"]:
         if phrase.lower() not in output.lower():
             errors.append(f"output contract missing: {phrase}")
 
     scoring = (ROOT / "config" / "scoring.yaml").read_text(encoding="utf-8")
-    for section in ["atlas_weights:", "stealth_score_weights:", "material_change:", "verdict_thresholds:"]:
+    for section in [
+        "atlas_weights:",
+        "stealth_score_weights:",
+        "sovereign_hurdle_rate_filter:",
+        "labor_to_capital_transfer_filter:",
+        "material_change:",
+        "verdict_thresholds:",
+    ]:
         if section not in scoring:
             errors.append(f"scoring config missing section: {section}")
 
@@ -78,7 +85,7 @@ def main() -> int:
         for error in errors:
             print(f"- {error}")
         return 1
-    print("Atlas validation passed: 25 sources, router, manifest, scoring, and output contract are consistent.")
+    print("Atlas validation passed: 25 sources, router, manifest, scoring, mandatory filters, and output contract are consistent.")
     return 0
 
 

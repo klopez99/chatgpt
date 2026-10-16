@@ -1,4 +1,4 @@
-version: 3
+version: 4
 scale: 0-100
 
 verdicts:
@@ -108,6 +108,64 @@ sovereign_hurdle_rate_filter:
     - six_percent_rate_stress_case
     - gate_result
 
+# Mandatory Atlas structural-capital-flow overlay: when AI or automation reduces human
+# labor requirements, where does the displaced wage dollar go, and which public company
+# can retain the largest durable share of it as per-share free cash flow?
+labor_to_capital_transfer_filter:
+  name: labor_to_capital_transfer
+  applies_to: all_equities
+  purpose: trace displaced labor spending through automation savings, AI/software spend, compute, power, physical infrastructure, capital returns, lower prices, taxes, and redistributed demand
+  beneficiary_modes:
+    - labor_substitution_margin_captor
+    - ai_software_or_agent_toll_collector
+    - compute_semiconductor_or_network_enabler
+    - power_grid_or_energy_owner
+    - data_center_land_cooling_or_physical_infrastructure_owner
+    - capital_allocator_or_financial_asset_owner
+    - consumer_price_deflation_beneficiary
+    - redistribution_or_demand_recycler
+  weights:
+    labor_substitution_exposure_and_addressable_wage_pool: 0.15
+    dollar_capture_directness: 0.15
+    operating_leverage_and_fcf_conversion: 0.15
+    scarce_input_or_tollbooth_ownership: 0.15
+    pricing_power_and_resistance_to_competitive_pass_through: 0.10
+    reinvestment_runway_and_per_share_capital_allocation: 0.10
+    evidence_of_customer_roi_and_adoption_speed: 0.10
+    end_demand_and_redistribution_resilience: 0.10
+  gates:
+    STRONG_CAPTURE:
+      minimum_score: 75
+      minimum_evidence_quality: 70
+      priority_rank_boost_max_points: 5
+      require_identifiable_dollar_path: true
+      require_positive_per_share_fcf_path: true
+    PARTIAL_CAPTURE:
+      minimum_score: 55
+      priority_rank_boost_max_points: 2
+    WEAK_OR_LEAKAGE:
+      maximum_score: 54
+      priority_rank_boost_max_points: 0
+  anti_double_count_rules:
+    - do_not_count_same_ai_revenue_or_margin_gain_in_multiple_beneficiary_modes_without_separate_evidence
+    - separate_customer_cost_savings_from_supplier_revenue_capture
+    - separate_announced_automation_from_realized_headcount_or_unit_cost_change
+    - do_not_assume_cost_savings_are_retained_if_competition_passes_them_to_customers
+    - require_per_share_analysis_after_stock_based_compensation_dilution_and_financing
+  required_output:
+    - labor_pool_at_risk_or_automatable_cost_base
+    - beneficiary_mode
+    - displaced_dollar_path
+    - direct_vs_second_order_capture
+    - customer_roi_or_payback_evidence
+    - expected_margin_or_fcf_conversion
+    - competitive_price_pass_through_leakage
+    - upstream_scarce_input_dependency
+    - per_share_value_capture
+    - end_demand_or_redistribution_risk
+    - score
+    - gate_result
+
 confidence_bands:
   exceptional: [90, 100]
   high_conviction: [80, 89]
@@ -125,6 +183,9 @@ material_change:
     - catalyst_advanced_or_broken
     - thesis_invalidated
     - sovereign_hurdle_rate_gate_changed
+    - labor_to_capital_transfer_gate_changed
+    - beneficiary_mode_changed
+    - displaced_dollar_path_materially_changed
 
 verdict_thresholds:
   BUY:
@@ -154,6 +215,7 @@ required_fields:
   - signal_cascade
   - scorecard
   - sovereign_hurdle_rate_filter
+  - labor_to_capital_transfer_filter
   - valuation_condition
   - position_stage
   - bear_case

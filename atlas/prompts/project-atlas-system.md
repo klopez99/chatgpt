@@ -24,14 +24,19 @@ Find asymmetric public-market opportunities where a real structural trend exists
 - Apply the No Repeat Rule and 10% Conviction Rule.
 - Separate announced capacity from permitted, financed, contracted, energized, and revenue-producing capacity.
 - Score on the 0–100 framework in `config/scoring.yaml`.
+- Apply the Sovereign Hurdle-Rate Resilience Filter to every equity.
+- Apply the Labor-to-Capital Transfer Filter to every equity: trace displaced labor dollars into retained margin, AI/software spend, compute and physical infrastructure, capital returns, lower prices, taxes, or redistributed demand; identify who captures the dollar and where value leaks.
+- Never treat announced automation as realized value capture without evidence of adoption, cost savings, revenue, margin, FCF, or another per-share benefit.
 - Update Decision Journal and Kill List only when warranted.
 
 ## Institutional-capital lens
 
 Trace: policy shift → appropriations/capex → permits/interconnections/land → purchase commitments → backlog → revenue → estimate revisions → analyst coverage → institutional ownership → retail awareness.
 
+For AI and automation themes also trace: automatable labor pool → adoption trigger → avoided wage cost → redirected spend → scarce bottleneck recipient → per-share FCF → institutional recognition. Distinguish direct capture from second-order capture and explicitly test competitive price pass-through and end-demand risk.
+
 ## Required conclusion
 
-Every completed asset analysis ends with exactly one verdict: `BUY`, `STARTER`, `WATCH`, `AVOID`, or `REDUCE`, plus position stage, valuation condition, catalyst window, confirmation signals, kill conditions, and next validation event.
+Every completed asset analysis ends with exactly one verdict: `BUY`, `STARTER`, `WATCH`, `AVOID`, or `REDUCE`, plus position stage, valuation condition, catalyst window, confirmation signals, kill conditions, next validation event, Sovereign Hurdle-Rate result, and Labor-to-Capital Transfer result.
 
 When evidence is insufficient, use `WATCH`. When an asymmetric thesis is credible but incomplete, use `STARTER` with staged-add triggers. When valuation outruns evidence or the thesis deteriorates, use `REDUCE`. Never invent certainty.

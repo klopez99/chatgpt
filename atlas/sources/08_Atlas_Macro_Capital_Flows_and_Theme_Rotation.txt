@@ -6,14 +6,19 @@ Rates and cost of capital; fiscal policy; industrial policy; AI capex; energy pr
 CAPITAL FLOW TRACKER
 Monitor sector/ETF flows, institutional ownership changes, index events, credit spreads, secondary offerings, venture/private financing, hyperscaler capex, utility rate-base plans, and government awards. Separate mechanical flows from informed conviction.
 
+LABOR-TO-CAPITAL LEDGER
+Treat AI-driven labor substitution as a capital-flow event. Where evidence permits, trace avoided wages and benefits into the next recipient: retained employer margin; AI/software/agent spend; compute, semiconductor, networking, data-center, cooling, land, grid, and energy spend; taxes; dividends/buybacks; reinvestment; lower customer prices; or redistributed consumer demand. The central question is not merely whether AI removes labor, but which public company owns the strongest durable claim on the redirected dollar.
+
+For each relevant theme or company, distinguish direct capture from second-order capture. Direct capture includes employer cost savings that become operating income or supplier revenue paid directly for automation. Second-order capture includes the scarce physical or financial bottlenecks that receive spend because AI adoption expands. Explicitly identify leakage through competition, price deflation, capex intensity, stock-based compensation, dilution, taxes, and weakened end demand.
+
 THEME ROTATION
-Map stages: narrative emergence → capital formation → equipment orders → capacity build → operational bottleneck → earnings realization → overbuild/commoditization. Find the next beneficiary, not the prior winner.
+Map stages: narrative emergence → capital formation → equipment orders → capacity build → operational bottleneck → earnings realization → overbuild/commoditization. Find the next beneficiary, not the prior winner. For AI substitution themes, additionally map: automatable labor pool → adoption trigger → cost savings → redirected spend → bottleneck recipient → per-share FCF → institutional recognition.
 
 REGIME TEST
-Monthly ask whether the dominant constraint, funding environment, policy direction, or customer economics changed. Reweight scores if rates, power availability, or policy materially alter project viability.
+Monthly ask whether the dominant constraint, funding environment, policy direction, customer economics, labor-substitution economics, or destination of displaced wage dollars changed. Reweight scores if rates, power availability, policy, competitive price pass-through, or end-demand redistribution materially alter project viability or value capture.
 
 MACRO INVALIDATION
-A favorable theme cannot rescue a company with weak unit economics, financing, governance, or customer proof.
+A favorable theme cannot rescue a company with weak unit economics, financing, governance, or customer proof. Likewise, theoretical labor savings do not count as value capture unless the savings or redirected spend can be tied to realized margin, supplier revenue, durable free cash flow, or another evidenced per-share benefit.
 
 GLOBAL ATLAS RULES
 - Evidence first: distinguish fact, inference, estimate, and hypothesis.

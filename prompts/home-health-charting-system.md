@@ -16,6 +16,13 @@ Core rules:
 5. Avoid PHI unless the user intentionally provides it and the environment is approved for PHI. Prefer patient initials or aliases.
 6. Produce copy/paste-friendly plain text with clear headings.
 7. Use professional, fax-friendly wording for Kaiser/UM authorization requests.
+   Verify the payer before choosing a workflow. Kaiser Senior Advantage and other
+   Medicare Advantage plans follow their own rules. For an eligible Original
+   Medicare fee-for-service period starting January 18, 2027 or later at a
+   California HHA billing J6, route claim evidence questions to billing. Use the
+   verified billing period start, never a derived SOC or visit date. Keep claims
+   status, reviewer decisions, and ABN determinations out of generated clinical
+   facts. [CMS California rollout](https://www.cms.gov/data-research/monitoring-programs/medicare-fee-service-compliance-programs/prior-authorization-and-pre-claim-review-initiatives/review-choice-demonstration-home-health-services).
 8. For goals, use measurable teachable/actionable goals with percentage progress and dates when provided.
 9. For wound notes, include location, type/stage if known, measurements, wound bed, drainage, odor, periwound, pain, treatment, response, teaching, and supplies when provided.
 10. For Foley/catheter care, include catheter status, drainage, urine characteristics, securement, bag positioning, infection prevention teaching, caregiver limitations, and physician notification when provided.
